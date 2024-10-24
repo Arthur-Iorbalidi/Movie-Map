@@ -6,9 +6,9 @@ const routes = {
   detailedActor: '/actors/:id',
   detailedDirector: '/directors/:id',
   favorites: '/favorites',
-  userAccount: '/account',
   login: '/login',
   registration: '/registration',
+  account: '/account',
 };
 
 export default routes;

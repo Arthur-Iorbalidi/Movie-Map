@@ -1,0 +1,81 @@
+@use '@src/constants/global.scss' as global;
+
+.header {
+  position: relative;
+  background: linear-gradient(90deg, #343333 38.05%, #484848 69.22%, #282828 98.98%);
+}
+
+.wrapper {
+  max-width: 1300px;
+  padding: global.$largePadding;
+  margin: 0 auto;
+  min-height: 127px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.appName_wrapper {
+  padding: global.$smallPadding;
+  border: global.$primaryBorderThin;
+  border-radius: global.$primaryBorderRadius;
+}
+
+.appName {
+  color: global.$lightColor;
+}
+
+.list {
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link_text {
+  padding: global.$extraSmallPadding;
+  border-radius: global.$primaryBorderRadius;
+  color: global.$lightColor;
+}
+
+.auth {
+  display: flex;
+  gap: 10px;
+  position: relative;
+
+  .btn {
+    font-size: global.$fontSizeCaptionSmall;
+    font-weight: 500;
+    padding: global.$smallPadding;
+    color: global.$lightColor;
+    border: global.$secondaryBorder;
+    border-radius: global.$primaryBorderRadius;
+  }
+}
+
+.account_btn {
+  display: flex;
+}
+
+.account_logo {
+  width: 50px;
+}
+
+@media (hover:hover) {
+  .auth {
+    .btn:hover {
+      color: global.$primaryColor;
+      background-color: global.$primaryBackgroundColor;
+      transition: 300ms all;
+    }
+  }
+
+  .link_text:hover {
+    background-color: #717171;
+  }
+}

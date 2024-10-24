@@ -1,0 +1,21 @@
+@use '@constants/global.scss' as global;
+
+.favourite_btn {
+  background-color: global.$notActiveBackgroundColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 59px;
+  height: 59px;
+  border-radius: global.$thirdBorderRadius;
+  flex-shrink: 0;
+  &.in_favorites {
+    background-color: global.$activeBackgroundColor;
+  }
+}
+
+@media (hover:hover) {
+  .favourite_btn:hover {
+    box-shadow: global.$primaryBoxShadow;
+  }
+}
