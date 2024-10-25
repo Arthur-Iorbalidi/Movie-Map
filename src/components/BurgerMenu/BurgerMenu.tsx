@@ -1,4 +1,5 @@
 import routes from '@src/constants/routes';
+import useAppSelector from '@src/hooks/useAppSelector';
 import useClickOutside from '@src/hooks/useClickOutside';
 import { useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
@@ -11,7 +12,7 @@ interface IProps {
 }
 
 const BurgerMenu = ({ toggleBurgerMenu, isBurgerMenuOpened }: IProps) => {
-  const isAuth = true;
+  const isAuth = useAppSelector((state) => state.userReducer.isAuthorized);
 
   const menuRef = useRef<HTMLDivElement>(null);
 

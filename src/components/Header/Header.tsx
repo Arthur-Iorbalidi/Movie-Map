@@ -2,6 +2,7 @@ import { appName } from '@src/constants/applicationInfo';
 import breakpoints from '@src/constants/breakpoints';
 import images from '@src/constants/images';
 import routes from '@src/constants/routes';
+import useAppSelector from '@src/hooks/useAppSelector';
 import useWindowWidth from '@src/hooks/useWindowWidth';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -12,7 +13,7 @@ import BurgerMenuButton from '../ui/BurgerMenuButton/BurgerMenuButton';
 import styles from './Header.module.scss';
 
 const Header = () => {
-  const isAuth = true;
+  const isAuth = useAppSelector((state) => state.userReducer.isAuthorized);
 
   const currentWindowWidth = useWindowWidth();
 
