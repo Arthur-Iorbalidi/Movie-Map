@@ -30,15 +30,11 @@ const MainRouter = () => {
           />
           <Route
             path={routes.account}
-            element={
-              isAuth ? <Account /> : <Navigate to={routes.registration} />
-            }
+            element={isAuth ? <Account /> : <Navigate to={routes.login} />}
           />
           <Route
             path={routes.favorites}
-            element={
-              isAuth ? <Favorites /> : <Navigate to={routes.registration} />
-            }
+            element={isAuth ? <Favorites /> : <Navigate to={routes.login} />}
           />
         </Route>
       </Routes>

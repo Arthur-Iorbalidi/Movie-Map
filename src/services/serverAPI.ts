@@ -1,4 +1,13 @@
-import { IActor, IDirector, IMovie } from '@src/types/serverAPITypes';
+import {
+  IActor,
+  IAuthUserResponse,
+  ICheckUserResponse,
+  ICreateUserDto,
+  IDirector,
+  IErrorResponse,
+  ILoginUserDto,
+  IMovie,
+} from '@src/types/serverAPITypes';
 import axios from 'axios';
 
 import storageAPI from './storageAPI';
@@ -12,6 +21,62 @@ class ServerAPI {
       'Content-Type': 'application/json',
     },
   });
+
+  async register(
+    userDto: ICreateUserDto,
+    successCallback?: (value: IAuthUserResponse) => void,
+    errorCallback?: (message?: string) => void,
+  ) {
+    try {
+      const response = await this.api.post('auth/registration', {
+        name: userDto.name,
+        surname: userDto.surname,
+        email: userDto.email,
+        password: userDto.password,
+      });
+
+      successCallback?.(response.data);
+    } catch (error) {
+      errorCallback?.((error as IErrorResponse).response.data.message);
+    }
+  }
+
+  async login(
+    userDto: ILoginUserDto,
+    successCallback?: (value: IAuthUserResponse) => void,
+    errorCallback?: (message?: string) => void,
+  ) {
+    try {
+      const response = await this.api.post('auth/login', {
+        email: userDto.email,
+        password: userDto.password,
+      });
+
+      successCallback?.(response.data);
+    } catch (error) {
+      errorCallback?.((error as IErrorResponse).response.data.message);
+    }
+  }
+
+  async checkUser(callback?: (response: ICheckUserResponse) => void) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.get('auth/check', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      callback?.({ isAuthorized: true, user: response.data });
+    } catch {
+      callback?.({ isAuthorized: false, user: undefined });
+    }
+  }
+
+  logout() {
+    storageAPI.remove('token');
+  }
 
   async getMovies(): Promise<IMovie[]> {
     const response = await this.api.get('movies');
@@ -51,6 +116,10 @@ class ServerAPI {
 
   getToken() {
     return storageAPI.get('token');
+  }
+
+  setToken(token: string) {
+    storageAPI.set('token', token);
   }
 }
 

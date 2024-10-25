@@ -1,17 +1,21 @@
 import images from '@src/constants/images';
 
-import styles from './Loader.module.scss';
+interface LoaderProps {
+  width?: number;
+  height?: number;
+}
 
-const Loader = () => {
-  return (
-    <div className={styles.loadingWrapper}>
-      <img
-        className={styles.loadingIcon}
-        src={images.loadingIcon}
-        alt="loading"
-      />
-    </div>
-  );
-};
+const Loader = ({ width = 200, height = 200 }: LoaderProps) => (
+  <div>
+    <img
+      src={images.loader}
+      alt="Loader"
+      style={{
+        width: `${width}px`,
+        height: `${height}px`,
+      }}
+    />
+  </div>
+);
 
 export default Loader;

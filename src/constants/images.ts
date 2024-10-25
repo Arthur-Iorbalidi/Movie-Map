@@ -5,6 +5,7 @@ import favoriteBookmark from '@src/assets/icons/favorite-bookmark.svg';
 import githubLogo from '@src/assets/icons/github-logo.svg';
 import goBackIcon from '@src/assets/icons/go-back.svg';
 import linkedlnLogo from '@src/assets/icons/linkedln-logo.svg';
+import loader from '@src/assets/icons/loader.svg';
 import loadingIcon from '@src/assets/icons/loading.svg';
 import searchIcon from '@src/assets/icons/search.svg';
 
@@ -18,6 +19,7 @@ const images = {
   goBackIcon: goBackIcon,
   favoriteBookmark: favoriteBookmark,
   accountLogo: accountLogo,
+  loader: loader,
 };
 
 export default images;

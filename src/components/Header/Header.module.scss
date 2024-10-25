@@ -19,7 +19,7 @@
 .appName_wrapper {
   padding: global.$smallPadding;
   border: global.$primaryBorderThin;
-  border-radius: global.$primaryBorderRadius;
+  border-radius: global.$smallBorderRadius;
 }
 
 .appName {
@@ -39,7 +39,7 @@
 
 .link_text {
   padding: global.$extraSmallPadding;
-  border-radius: global.$primaryBorderRadius;
+  border-radius: global.$smallBorderRadius;
   color: global.$lightColor;
 }
 
@@ -47,15 +47,6 @@
   display: flex;
   gap: 10px;
   position: relative;
-
-  .btn {
-    font-size: global.$fontSizeCaptionSmall;
-    font-weight: 500;
-    padding: global.$smallPadding;
-    color: global.$lightColor;
-    border: global.$secondaryBorder;
-    border-radius: global.$primaryBorderRadius;
-  }
 }
 
 .account_btn {
@@ -67,14 +58,6 @@
 }
 
 @media (hover:hover) {
-  .auth {
-    .btn:hover {
-      color: global.$primaryColor;
-      background-color: global.$primaryBackgroundColor;
-      transition: 300ms all;
-    }
-  }
-
   .link_text:hover {
     background-color: #717171;
   }

@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import AuthUserMenu from '../AuthUserMenu/AuthUserMenu';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import BurgerMenuButton from '../ui/BurgerMenuButton/BurgerMenuButton';
+import Button from '../ui/Button/Button';
 import styles from './Header.module.scss';
 
 const Header = () => {
@@ -82,7 +83,7 @@ const Header = () => {
               {!isAuth ? (
                 <>
                   <Link className={styles.btn} to={routes.login}>
-                    Login
+                    <Button value="Log In" />
                   </Link>
                 </>
               ) : (

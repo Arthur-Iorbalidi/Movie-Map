@@ -6,8 +6,8 @@ interface IMovie {
   genre: string;
   logoUrl?: string;
   budget: number;
-  // actors?: IActor[];
-  // directors?: IDirector[];
+  actors?: IActor[];
+  directors?: IDirector[];
 }
 
 interface IActor {
@@ -39,9 +39,50 @@ interface IUser {
   id: number;
   username: string;
   email: string;
-  movies?: IMovie[];
-  actors?: IActor[];
-  directors?: IDirector[];
+  // movies?: IMovie[];
+  // actors?: IActor[];
+  // directors?: IDirector[];
 }
 
-export type { IActor, IDirector, IMovie, IUser };
+interface ICreateUserDto {
+  name: string;
+  surname: string;
+  email: string;
+  password: string;
+}
+
+interface ILoginUserDto {
+  email: string;
+  password: string;
+}
+
+interface IAuthUserResponse {
+  user: IUser;
+  token: string;
+}
+
+interface ICheckUserResponse {
+  isAuthorized: boolean;
+  user: IUser | undefined;
+}
+
+interface IErrorResponse {
+  response: {
+    data: {
+      statusCode: number;
+      message: string;
+    };
+  };
+}
+
+export type {
+  IActor,
+  IAuthUserResponse,
+  ICheckUserResponse,
+  ICreateUserDto,
+  IDirector,
+  IErrorResponse,
+  ILoginUserDto,
+  IMovie,
+  IUser,
+};
