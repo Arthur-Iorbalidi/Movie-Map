@@ -37,7 +37,11 @@ class ServerAPI {
 
       successCallback?.(response.data);
     } catch (error) {
-      errorCallback?.((error as IErrorResponse).response.data.message);
+      if ((error as IErrorResponse).response) {
+        errorCallback?.((error as IErrorResponse).response.data.message);
+      } else {
+        errorCallback?.('Error');
+      }
     }
   }
 
@@ -54,7 +58,11 @@ class ServerAPI {
 
       successCallback?.(response.data);
     } catch (error) {
-      errorCallback?.((error as IErrorResponse).response.data.message);
+      if ((error as IErrorResponse).response) {
+        errorCallback?.((error as IErrorResponse).response.data.message);
+      } else {
+        errorCallback?.('Error');
+      }
     }
   }
 

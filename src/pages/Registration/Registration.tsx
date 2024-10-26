@@ -47,7 +47,6 @@ const Registration = () => {
   });
 
   const onSubmit: SubmitHandler<IFormFields> = (data) => {
-    console.log(data);
     serverAPI.register(data, succesReg, errorReg);
     setIsLoading(true);
   };

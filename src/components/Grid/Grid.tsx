@@ -1,8 +1,8 @@
-import Loader from '@src/components/ui/Loader/Loader';
+import Loader from '@src/components/ui/Loader/loader';
 import Message from '@src/components/ui/Message/Message';
 import { memo, ReactNode } from 'react';
 
-import styles from './Artworks.module.scss';
+import styles from './Grid.module.scss';
 
 export enum LayoutType {
   threeColumns,

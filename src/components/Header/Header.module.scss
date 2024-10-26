@@ -51,6 +51,7 @@
 
 .account_btn {
   display: flex;
+  transition: 200ms all;
 }
 
 .account_logo {
@@ -60,5 +61,9 @@
 @media (hover:hover) {
   .link_text:hover {
     background-color: #717171;
+  }
+
+  .account_btn:hover {
+    transform: scale(1.1);
   }
 }

@@ -1,16 +1,16 @@
-@use '@constants/global.scss' as global;
+@use '@src/constants/global.scss' as global;
 
 .favourite_btn {
-  background-color: global.$notActiveBackgroundColor;
+  background-color: global.$buttonPrimaryNotActiveBackgroundColor;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 59px;
   height: 59px;
-  border-radius: global.$thirdBorderRadius;
+  border-radius: global.$circleBorderRadius;
   flex-shrink: 0;
   &.in_favorites {
-    background-color: global.$activeBackgroundColor;
+    background-color: global.$buttonPrimaryBackgroundColor;
   }
 }
 

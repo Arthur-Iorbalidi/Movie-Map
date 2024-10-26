@@ -45,7 +45,6 @@ const Login = () => {
   });
 
   const onSubmit: SubmitHandler<IFormFields> = (data) => {
-    console.log(data);
     serverAPI.login(data, succesReg, errorReg);
     setIsLoading(true);
   };

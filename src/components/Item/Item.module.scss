@@ -1,18 +1,18 @@
-@use '@constants/global.scss' as global;
+@use '@src/constants/global.scss' as global;
 
-.artwork {
+.item {
   display: flex;
   justify-content: space-between;
 }
 
-.artwork_img {
+.item_img {
   display: block;
   width: 100%;
   height: auto;
 }
 
 .info {
-  padding: global.$primaryPadding;
+  padding: global.$largePadding;
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -28,8 +28,8 @@
   font-weight: 500;
 }
 
-.author {
-  color: global.$secondaryColor;
+.subtittle {
+  color: global.$primaryColor;
 }
 
 .favorite_btn_wrapper {
@@ -41,7 +41,7 @@
 
   .info {
     background-color: global.$secondaryBackgroundColor;
-    border: global.$primaryBorder;
+    border: global.$primaryBorderThin;
     align-items: center;
   }
 }
@@ -49,7 +49,7 @@
 .horizontal {
   flex-direction: row;
   background-color: global.$secondaryBackgroundColor;
-  border: global.$primaryBorder;
+  border: global.$primaryBorderThin;
 
   .img_wrapper {
     padding: 10px 0 10px 10px;
@@ -96,7 +96,7 @@
 }
 
 @media (hover:hover) {
-  .artwork:hover {
+  .item:hover {
     box-shadow: global.$primaryBoxShadow;
   }
 }

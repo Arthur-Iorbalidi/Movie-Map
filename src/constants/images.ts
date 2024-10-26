@@ -4,6 +4,7 @@ import arrowForward from '@src/assets/icons/arrow-forward.svg';
 import favoriteBookmark from '@src/assets/icons/favorite-bookmark.svg';
 import githubLogo from '@src/assets/icons/github-logo.svg';
 import goBackIcon from '@src/assets/icons/go-back.svg';
+import imgPlaceholder from '@src/assets/icons/img-placeholder.svg';
 import linkedlnLogo from '@src/assets/icons/linkedln-logo.svg';
 import loader from '@src/assets/icons/loader.svg';
 import loadingIcon from '@src/assets/icons/loading.svg';
@@ -20,6 +21,7 @@ const images = {
   favoriteBookmark: favoriteBookmark,
   accountLogo: accountLogo,
   loader: loader,
+  imgPlaceholder: imgPlaceholder,
 };
 
 export default images;

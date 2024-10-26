@@ -1,9 +1,8 @@
 import FavoriteButton from '@src/components/ui/FavoriteButton/FavoriteButton';
 import images from '@src/constants/images';
-import routes from '@src/constants/routes';
 import { Link } from 'react-router-dom';
 
-import styles from './Artwork.module.scss';
+import styles from './item.module.scss';
 
 export enum Appearance {
   vertical,
@@ -11,34 +10,34 @@ export enum Appearance {
 }
 
 interface IProps {
-  // artwork: IArtwork;
+  id: number;
+  tittle: string;
+  subtittle?: string;
+  caption?: string;
+  imgUrl?: string;
+  isActive: boolean;
+  navigateTo: string;
   appearance?: Appearance;
-  handleRemove?: (id: number) => void;
+  handleBtnClickCallback?: (id: number) => void;
 }
 
-const Artwork = ({
-  // artwork,
-  handleRemove,
+const Item = ({
+  id,
+  tittle,
+  subtittle,
+  caption,
+  imgUrl,
+  isActive,
+  navigateTo,
+  handleBtnClickCallback,
   appearance = Appearance.vertical,
 }: IProps) => {
-  const [isInFavorites, setIsInFavorites] = useState(
-    favouritesAPI.isInFavorites(artwork.id),
-  );
-
-  const handleToggleFavorite = (
+  const handleBtnClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
     event.preventDefault();
 
-    if (isInFavorites) {
-      favouritesAPI.removeFromFavourites(artwork.id);
-      setIsInFavorites(false);
-
-      handleRemove?.(artwork.id);
-    } else {
-      favouritesAPI.addToFavourites(artwork.id);
-      setIsInFavorites(true);
-    }
+    handleBtnClickCallback?.(id);
   };
 
   const classNameSwitcher = () => {
@@ -53,34 +52,29 @@ const Artwork = ({
   };
 
   return (
-    <Link
-      to={`${routes.home}/${artwork.id}`}
-      className={`${styles.artwork} ${classNameSwitcher()}`}
-    >
+    <Link to={navigateTo} className={`${styles.item} ${classNameSwitcher()}`}>
       <div className={styles.img_wrapper}>
         <img
-          src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
-          alt="artwork"
-          className={styles.artwork_img}
+          src={imgUrl}
+          alt="item"
+          className={styles.item_img}
           onError={(e) => {
-            e.currentTarget.src = images.alternativeArtworkImg;
+            e.currentTarget.src = images.imgPlaceholder;
           }}
         />
       </div>
       <div className={styles.info}>
         <div className={styles.details}>
-          <p className={styles.tittle}>{artwork.title}</p>
-          <p className={styles.author}>{artwork.artist_title}</p>
+          <p className={styles.tittle}>{tittle}</p>
+          {subtittle && <p className={styles.subtittle}>{subtittle}</p>}
+          {caption && <p className={styles.subtittle}>{caption}</p>}
         </div>
         <div className={styles.favorite_btn_wrapper}>
-          <FavoriteButton
-            isInFavorites={isInFavorites}
-            onClick={handleToggleFavorite}
-          />
+          <FavoriteButton isInFavorites={isActive} onClick={handleBtnClick} />
         </div>
       </div>
     </Link>
   );
 };
 
-export default Artwork;
+export default Item;

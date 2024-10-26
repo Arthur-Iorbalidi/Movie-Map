@@ -39,9 +39,9 @@ interface IUser {
   id: number;
   username: string;
   email: string;
-  // movies?: IMovie[];
-  // actors?: IActor[];
-  // directors?: IDirector[];
+  movies: Array<{ id: number }>;
+  actors: Array<{ id: number }>;
+  directors: Array<{ id: number }>;
 }
 
 interface ICreateUserDto {
