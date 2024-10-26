@@ -13,9 +13,11 @@ $modalBackgroundColor: #f2f2f2;
 $buttonPrimaryBackgroundColor: #d9ef81;
 $buttonPrimaryNotActiveBackgroundColor: #f0f0f0;
 $buttonPrimaryActiveBackgroundColor: #b5d43c;
+$formBackgroundColor: #3939390d;
 
 //Box shadow
 $primaryBoxShadow: 0 0 10px #00000033;
+$secondaryBoxShadow: 0 0 5px $buttonPrimaryActiveBackgroundColor;
 
 //Border
 $primaryBorderThin: 1px solid #d1d1d1;
@@ -26,6 +28,7 @@ $fourthBorder: 2px solid #aaaaaa;
 $darkBorder: 2px solid $primaryColor;
 
 //BorderRadius
+$extraSmallBorderRadius: 4px;
 $smallBorderRadius: 10px;
 $mediumBorderRadius: 16px;
 $circleBorderRadius: 50%;

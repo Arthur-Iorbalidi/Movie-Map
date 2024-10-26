@@ -7,6 +7,8 @@ import {
   IErrorResponse,
   ILoginUserDto,
   IMovie,
+  IMoviesResponse,
+  ISearch,
 } from '@src/types/serverAPITypes';
 import axios from 'axios';
 
@@ -82,12 +84,76 @@ class ServerAPI {
     }
   }
 
+  async addMovieToFavorites(
+    id: number,
+    successCallback?: (id: number) => void,
+    unathorizedCallback?: () => void,
+  ) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.post(
+        `users/favorites/movie/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      successCallback?.(id);
+
+      return response;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+
+      return e;
+    }
+  }
+
+  async removeMovieToFavorites(
+    id: number,
+    successCallback?: (id: number) => void,
+    unathorizedCallback?: () => void,
+  ) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.delete(`users/favorites/movie/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      successCallback?.(id);
+
+      return response;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+
+      return e;
+    }
+  }
+
   logout() {
     storageAPI.remove('token');
   }
 
-  async getMovies(): Promise<IMovie[]> {
-    const response = await this.api.get('movies');
+  async getMovies(params: ISearch): Promise<IMoviesResponse> {
+    const response = await this.api.get('movies', {
+      params: {
+        ...(params.search !== '' ? { search: params.search } : {}),
+        ...(params.sort !== '' ? { sort: params.sort } : {}),
+        ...(params.sortBy !== '' ? { sort: params.sortBy } : {}),
+        page: params.page,
+        limit: params.limit,
+      },
+    });
 
     return response.data;
   }

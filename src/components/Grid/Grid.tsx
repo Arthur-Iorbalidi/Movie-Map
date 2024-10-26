@@ -1,4 +1,4 @@
-import Loader from '@src/components/ui/Loader/loader';
+import Loader from '@src/components/ui/Loader/Loader';
 import Message from '@src/components/ui/Message/Message';
 import { memo, ReactNode } from 'react';
 

@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@src/components/ui/Button/Button';
-import Loader from '@src/components/ui/Loader/loader';
+import Loader from '@src/components/ui/Loader/Loader';
 import getRegistrationValidationSchema from '@src/constants/RegistrationValidationSchema';
 import routes from '@src/constants/routes';
 import useAppDispatch from '@src/hooks/useAppDispatch';
@@ -9,7 +9,7 @@ import {
   changeIsAuthorized,
   changeUserInfo,
 } from '@src/store/slices/userSlice';
-import { ICreateUserResponse } from '@src/types/serverAPITypes';
+import { IAuthUserResponse } from '@src/types/serverAPITypes';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
@@ -51,7 +51,7 @@ const Registration = () => {
     setIsLoading(true);
   };
 
-  const succesReg = (value: ICreateUserResponse) => {
+  const succesReg = (value: IAuthUserResponse) => {
     setIsLoading(false);
     serverAPI.setToken(value.token);
     dispatch(changeIsAuthorized(true));
@@ -126,7 +126,7 @@ const Registration = () => {
           </div>
         </div>
         <div className={styles.submit_wrapper}>
-          <Button value="Sign Up" />
+          <Button value="Sign Up" type="submit" />
           <p>
             Already have an account?{' '}
             <Link to={routes.login} className={styles.link}>

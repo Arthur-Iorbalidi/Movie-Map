@@ -1,33 +1,49 @@
 import Grid from '@src/components/Grid/Grid';
 import Item from '@src/components/Item/Item';
+import Pagination from '@src/components/Pagination/Pagination';
+import SearchForm from '@src/components/SearchForm/SearchForm';
 import routes from '@src/constants/routes';
 import useAppSelector from '@src/hooks/useAppSelector';
 import serverAPI from '@src/services/serverAPI';
 import {
+  changeMoviesPage,
+  changeMoviesSearch,
+  resetMoviesPage,
+} from '@src/store/slices/searchSlice';
+import {
   addMovieToFavorites,
   removeMovieFromFavorites,
 } from '@src/store/slices/userSlice';
-import { IMovie } from '@src/types/serverAPITypes';
+import { IMoviesResponse } from '@src/types/serverAPITypes';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './Movies.module.scss';
 
 const Movies = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const favoritesMovies = useAppSelector(
     (state) => state.userReducer.userInfo?.movies,
   );
 
-  const [movies, setMovies] = useState<IMovie[] | undefined>(undefined);
+  const [movies, setMovies] = useState<IMoviesResponse | undefined>(undefined);
+
+  const params = useAppSelector((state) => state.searchReducer.movies);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const data = await serverAPI.getMovies();
+      setIsLoading(true);
+      const data = await serverAPI.getMovies(params);
       setMovies(data);
+      setIsLoading(false);
     })();
-  }, []);
+  }, [params]);
 
   const isInFavorites = (id: number) => {
     if (favoritesMovies) {
@@ -38,20 +54,46 @@ const Movies = () => {
 
   const toggleFavorites = (id: number) => {
     if (isInFavorites(id)) {
-      dispatch(removeMovieFromFavorites(id));
+      serverAPI.removeMovieToFavorites(id, succesRemove, unathorizedCallback);
     } else {
-      dispatch(addMovieToFavorites(id));
+      serverAPI.addMovieToFavorites(id, succesAdd, unathorizedCallback);
     }
+  };
+
+  const succesAdd = (id: number) => {
+    dispatch(addMovieToFavorites(id));
+  };
+
+  const succesRemove = (id: number) => {
+    dispatch(removeMovieFromFavorites(id));
+  };
+
+  const unathorizedCallback = () => {
+    navigate(routes.login);
+  };
+
+  const handleChangeSearch = (search: string) => {
+    dispatch(changeMoviesSearch(search));
+    dispatch(resetMoviesPage());
+  };
+
+  const handleChangePage = (count: number) => {
+    dispatch(changeMoviesPage(params.page + count));
   };
 
   return (
     <section className={styles.movies_page}>
       <div className={styles.wrapper}>
+        <SearchForm
+          handleChangeQuery={handleChangeSearch}
+          currentSearchValue={params.search}
+        />
+
         <h2 className={styles.header}>Movies</h2>
 
-        <Grid isLoading={false}>
+        <Grid isLoading={isLoading}>
           {movies &&
-            movies.map((movie) => (
+            movies.data.map((movie) => (
               <Item
                 key={movie.id}
                 id={movie.id}
@@ -65,6 +107,13 @@ const Movies = () => {
               />
             ))}
         </Grid>
+
+        {movies?.pagination && (
+          <Pagination
+            pagination={movies?.pagination}
+            handleChangePage={handleChangePage}
+          />
+        )}
       </div>
     </section>
   );

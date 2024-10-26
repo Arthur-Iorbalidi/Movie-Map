@@ -35,6 +35,26 @@ interface IDirector {
   movies?: IMovie[];
 }
 
+interface IMoviesResponse {
+  data: IMovie[];
+  pagination: IPagination;
+}
+
+interface IPagination {
+  total: number;
+  limit: number;
+  total_pages: number;
+  current_page: number;
+}
+
+interface ISearch {
+  search?: string;
+  sort?: string;
+  sortBy?: string;
+  page?: number;
+  limit?: number;
+}
+
 interface IUser {
   id: number;
   username: string;
@@ -67,6 +87,7 @@ interface ICheckUserResponse {
 }
 
 interface IErrorResponse {
+  status: number;
   response: {
     data: {
       statusCode: number;
@@ -84,5 +105,8 @@ export type {
   IErrorResponse,
   ILoginUserDto,
   IMovie,
+  IMoviesResponse,
+  IPagination,
+  ISearch,
   IUser,
 };
