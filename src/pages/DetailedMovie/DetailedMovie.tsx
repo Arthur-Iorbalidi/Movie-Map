@@ -151,7 +151,7 @@ const DetailedMovie = () => {
                       <Fragment key={actor.id}>
                         <Link
                           className={styles.overview_item_value_link}
-                          to={`${routes.directors}/${actor.id}`}
+                          to={`${routes.actors}/${actor.id}`}
                         >
                           {`${actor.name} ${actor.surname}`}
                         </Link>

@@ -53,6 +53,13 @@ const Actors = () => {
     })();
   }, [params]);
 
+  const currentSortOptionIndex =
+    sortOptions.actors.findIndex(
+      (option) =>
+        option.value.sortBy === params.sortBy &&
+        option.value.sortOrder === params.sortOrder,
+    ) || 0;
+
   const handleToggleFavorites = (id: number) => {
     toggleFavoriteActor(
       id,
@@ -99,6 +106,7 @@ const Actors = () => {
 
         <Sorting
           sortOptions={sortOptions.actors}
+          currentSortOptionIndex={currentSortOptionIndex}
           handleChangeSorting={handleChangeSorting}
         />
 

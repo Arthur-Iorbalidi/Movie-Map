@@ -65,6 +65,13 @@ const Directors = () => {
     );
   };
 
+  const currentSortOptionIndex =
+    sortOptions.actors.findIndex(
+      (option) =>
+        option.value.sortBy === params.sortBy &&
+        option.value.sortOrder === params.sortOrder,
+    ) || 0;
+
   const succesAdd = (id: number) => {
     dispatch(addDirectorToFavorites(id));
   };
@@ -101,6 +108,7 @@ const Directors = () => {
 
         <Sorting
           sortOptions={sortOptions.directors}
+          currentSortOptionIndex={currentSortOptionIndex}
           handleChangeSorting={handleChangeSorting}
         />
 

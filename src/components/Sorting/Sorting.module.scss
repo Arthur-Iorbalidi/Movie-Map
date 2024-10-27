@@ -4,11 +4,11 @@
   display: flex;
   margin: 0 auto;
   max-width: 200px;
+  margin-top: 25px;
 }
 
 .select {
-  flex-grow: 1;
-  margin-top: 25px;
+  width: 100%;
   padding: global.$smallPadding;
   border: global.$secondaryBorder;
   border-radius: global.$extraSmallBorderRadius;

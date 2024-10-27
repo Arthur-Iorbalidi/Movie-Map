@@ -51,6 +51,13 @@ const Movies = () => {
     })();
   }, [params]);
 
+  const currentSortOptionIndex =
+    sortOptions.movies.findIndex(
+      (option) =>
+        option.value.sortBy === params.sortBy &&
+        option.value.sortOrder === params.sortOrder,
+    ) || 0;
+
   const handleToggleFavorites = (id: number) => {
     toggleFavoriteMovie(
       id,
@@ -97,6 +104,7 @@ const Movies = () => {
 
         <Sorting
           sortOptions={sortOptions.movies}
+          currentSortOptionIndex={currentSortOptionIndex}
           handleChangeSorting={handleChangeSorting}
         />
 
