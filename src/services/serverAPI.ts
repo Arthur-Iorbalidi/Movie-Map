@@ -272,10 +272,17 @@ class ServerAPI {
     return response.data;
   }
 
-  async getMovie(id: number): Promise<IMovie> {
-    const response = await this.api.get(`movies/${id}`);
+  async getMovie(
+    id: number,
+    errorCallback: (message: string) => void,
+  ): Promise<IMovie | undefined> {
+    try {
+      const response = await this.api.get(`movies/${id}`);
 
-    return response.data;
+      return response.data;
+    } catch {
+      errorCallback?.('Nothing was found');
+    }
   }
 
   async getActors(params: ISearch): Promise<IActorsResponse> {
@@ -292,10 +299,17 @@ class ServerAPI {
     return response.data;
   }
 
-  async getActor(id: number): Promise<IActor> {
-    const response = await this.api.get(`actors/${id}`);
+  async getActor(
+    id: number,
+    errorCallback: (message: string) => void,
+  ): Promise<IActor | undefined> {
+    try {
+      const response = await this.api.get(`actors/${id}`);
 
-    return response.data;
+      return response.data;
+    } catch {
+      errorCallback?.('Nothing was found');
+    }
   }
 
   async getDirectors(params: ISearch): Promise<IDirectorsResponse> {
@@ -312,10 +326,17 @@ class ServerAPI {
     return response.data;
   }
 
-  async getDirector(id: number): Promise<IDirector> {
-    const response = await this.api.get(`directors/${id}`);
+  async getDirector(
+    id: number,
+    errorCallback: (message: string) => void,
+  ): Promise<IDirector | undefined> {
+    try {
+      const response = await this.api.get(`directors/${id}`);
 
-    return response.data;
+      return response.data;
+    } catch {
+      errorCallback?.('Nothing was found');
+    }
   }
 
   getToken() {

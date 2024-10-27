@@ -20,6 +20,9 @@ import {
 } from '@src/store/slices/userSlice';
 import { IActorsResponse } from '@src/types/serverAPITypes';
 import calculateAge from '@src/utils/calculateAge';
+import getShortPeriodOfLife from '@src/utils/getPeriodOfLife';
+import isInArray from '@src/utils/isInArray';
+import { toggleFavoriteActor } from '@src/utils/toggleFavorites';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -50,19 +53,14 @@ const Actors = () => {
     })();
   }, [params]);
 
-  const isInFavorites = (id: number) => {
-    if (favoritesActors) {
-      return favoritesActors.some((actor) => actor.id === id);
-    }
-    return false;
-  };
-
-  const toggleFavorites = (id: number) => {
-    if (isInFavorites(id)) {
-      serverAPI.removeActorFromFavorites(id, succesRemove, unathorizedCallback);
-    } else {
-      serverAPI.addActorToFavorites(id, succesAdd, unathorizedCallback);
-    }
+  const handleToggleFavorites = (id: number) => {
+    toggleFavoriteActor(
+      id,
+      isInArray(id, favoritesActors),
+      succesAdd,
+      succesRemove,
+      unathorizedCallback,
+    );
   };
 
   const succesAdd = (id: number) => {
@@ -112,11 +110,15 @@ const Actors = () => {
               <Item
                 key={actor.id}
                 id={actor.id}
-                handleBtnClickCallback={toggleFavorites}
+                handleBtnClickCallback={handleToggleFavorites}
                 tittle={`${actor.name} ${actor.surname}`}
-                subtittle={calculateAge(actor.birthday, actor.dateOfDeath)}
+                subtittle={
+                  actor.dateOfDeath
+                    ? `${getShortPeriodOfLife(actor.birthday, actor.dateOfDeath)} (${calculateAge(actor.birthday, actor.dateOfDeath)} years)`
+                    : `${calculateAge(actor.birthday, actor.dateOfDeath)} years`
+                }
                 imgUrl={actor.imgUrl}
-                isActive={isInFavorites(actor.id)}
+                isActive={isInArray(actor.id, favoritesActors)}
                 navigateTo={`${routes.actors}/${actor.id}`}
               />
             ))}

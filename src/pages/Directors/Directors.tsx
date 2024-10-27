@@ -20,6 +20,9 @@ import {
 } from '@src/store/slices/userSlice';
 import { IDirectorsResponse } from '@src/types/serverAPITypes';
 import calculateAge from '@src/utils/calculateAge';
+import getShortPeriodOfLife from '@src/utils/getPeriodOfLife';
+import isInArray from '@src/utils/isInArray';
+import { toggleFavoriteDirector } from '@src/utils/toggleFavorites';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -52,23 +55,14 @@ const Directors = () => {
     })();
   }, [params]);
 
-  const isInFavorites = (id: number) => {
-    if (favoritesDirectors) {
-      return favoritesDirectors.some((director) => director.id === id);
-    }
-    return false;
-  };
-
-  const toggleFavorites = (id: number) => {
-    if (isInFavorites(id)) {
-      serverAPI.removeDirectorFromFavorites(
-        id,
-        succesRemove,
-        unathorizedCallback,
-      );
-    } else {
-      serverAPI.addDirectorToFavorites(id, succesAdd, unathorizedCallback);
-    }
+  const handleToggleFavorites = (id: number) => {
+    toggleFavoriteDirector(
+      id,
+      isInArray(id, favoritesDirectors),
+      succesAdd,
+      succesRemove,
+      unathorizedCallback,
+    );
   };
 
   const succesAdd = (id: number) => {
@@ -118,14 +112,15 @@ const Directors = () => {
               <Item
                 key={director.id}
                 id={director.id}
-                handleBtnClickCallback={toggleFavorites}
+                handleBtnClickCallback={handleToggleFavorites}
                 tittle={`${director.name} ${director.surname}`}
-                subtittle={calculateAge(
-                  director.birthday,
-                  director.dateOfDeath,
-                )}
+                subtittle={
+                  director.dateOfDeath
+                    ? `${getShortPeriodOfLife(director.birthday, director.dateOfDeath)} (${calculateAge(director.birthday, director.dateOfDeath)} years)`
+                    : `${calculateAge(director.birthday, director.dateOfDeath)} years`
+                }
                 imgUrl={director.imgUrl}
-                isActive={isInFavorites(director.id)}
+                isActive={isInArray(director.id, favoritesDirectors)}
                 navigateTo={`${routes.directors}/${director.id}`}
               />
             ))}

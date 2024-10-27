@@ -19,6 +19,8 @@ import {
   removeMovieFromFavorites,
 } from '@src/store/slices/userSlice';
 import { IMoviesResponse } from '@src/types/serverAPITypes';
+import isInArray from '@src/utils/isInArray';
+import { toggleFavoriteMovie } from '@src/utils/toggleFavorites';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -49,19 +51,14 @@ const Movies = () => {
     })();
   }, [params]);
 
-  const isInFavorites = (id: number) => {
-    if (favoritesMovies) {
-      return favoritesMovies.some((movie) => movie.id === id);
-    }
-    return false;
-  };
-
-  const toggleFavorites = (id: number) => {
-    if (isInFavorites(id)) {
-      serverAPI.removeMovieFromFavorites(id, succesRemove, unathorizedCallback);
-    } else {
-      serverAPI.addMovieToFavorites(id, succesAdd, unathorizedCallback);
-    }
+  const handleToggleFavorites = (id: number) => {
+    toggleFavoriteMovie(
+      id,
+      isInArray(id, favoritesMovies),
+      succesAdd,
+      succesRemove,
+      unathorizedCallback,
+    );
   };
 
   const succesAdd = (id: number) => {
@@ -111,12 +108,12 @@ const Movies = () => {
               <Item
                 key={movie.id}
                 id={movie.id}
-                handleBtnClickCallback={toggleFavorites}
+                handleBtnClickCallback={handleToggleFavorites}
                 tittle={movie.tittle}
                 subtittle={movie.genre}
                 caption={new Date(movie.creationDate).getFullYear().toString()}
                 imgUrl={movie.logoUrl}
-                isActive={isInFavorites(movie.id)}
+                isActive={isInArray(movie.id, favoritesMovies)}
                 navigateTo={`${routes.movies}/${movie.id}`}
               />
             ))}

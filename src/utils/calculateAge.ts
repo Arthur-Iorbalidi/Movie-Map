@@ -3,6 +3,7 @@ function calculateAge(birthday: string, dateOfDeath: string | null = null) {
 
   if (dateOfDeath) {
     const deathDate = new Date(dateOfDeath);
+
     let ageAtDeath = deathDate.getFullYear() - birthDate.getFullYear();
     const monthDifference = deathDate.getMonth() - birthDate.getMonth();
     const dayDifference = deathDate.getDate() - birthDate.getDate();
@@ -11,7 +12,7 @@ function calculateAge(birthday: string, dateOfDeath: string | null = null) {
       ageAtDeath--;
     }
 
-    return `${ageAtDeath} years (${birthDate.getFullYear()}–${deathDate.getFullYear()})`;
+    return `${ageAtDeath}`;
   }
 
   const today = new Date();
@@ -24,7 +25,7 @@ function calculateAge(birthday: string, dateOfDeath: string | null = null) {
     age--;
   }
 
-  return `${age} years`;
+  return `${age}`;
 }
 
 export default calculateAge;
