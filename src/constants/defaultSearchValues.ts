@@ -1,22 +1,22 @@
 const defaultSearchValues = {
   movies: {
     search: '',
-    sort: '',
     sortBy: '',
+    sortOrder: '',
     page: 1,
     limit: 6,
   },
   actors: {
     search: '',
-    sort: '',
     sortBy: '',
+    sortOrder: '',
     page: 1,
     limit: 6,
   },
   directors: {
     search: '',
-    sort: '',
     sortBy: '',
+    sortOrder: '',
     page: 1,
     limit: 6,
   },

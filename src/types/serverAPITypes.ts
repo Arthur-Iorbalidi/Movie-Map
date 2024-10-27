@@ -49,8 +49,8 @@ interface IPagination {
 
 interface ISearch {
   search?: string;
-  sort?: string;
   sortBy?: string;
+  sortOrder?: string;
   page?: number;
   limit?: number;
 }

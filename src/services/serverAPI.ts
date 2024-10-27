@@ -148,8 +148,8 @@ class ServerAPI {
     const response = await this.api.get('movies', {
       params: {
         ...(params.search !== '' ? { search: params.search } : {}),
-        ...(params.sort !== '' ? { sort: params.sort } : {}),
-        ...(params.sortBy !== '' ? { sort: params.sortBy } : {}),
+        ...(params.sortBy !== '' ? { sortBy: params.sortBy } : {}),
+        ...(params.sortOrder !== '' ? { sortOrder: params.sortOrder } : {}),
         page: params.page,
         limit: params.limit,
       },

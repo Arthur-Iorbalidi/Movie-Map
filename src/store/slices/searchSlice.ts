@@ -12,10 +12,10 @@ const searchSlice = createSlice({
       state.movies.page = action.payload;
     },
     changeMoviesSort: (state, action: PayloadAction<string>) => {
-      state.movies.sort = action.payload;
+      state.movies.sortBy = action.payload;
     },
     changeMoviesSortOrder: (state, action: PayloadAction<string>) => {
-      state.movies.sortBy = action.payload;
+      state.movies.sortOrder = action.payload;
     },
     resetMoviesPage: (state) => {
       state.movies.page = defaultSearchValues.movies.page;
@@ -27,10 +27,10 @@ const searchSlice = createSlice({
       state.actors.page = action.payload;
     },
     changeActorSort: (state, action: PayloadAction<string>) => {
-      state.actors.sort = action.payload;
+      state.actors.sortBy = action.payload;
     },
     changeActorSortOrder: (state, action: PayloadAction<string>) => {
-      state.actors.sortBy = action.payload;
+      state.actors.sortOrder = action.payload;
     },
     resetActorPage: (state) => {
       state.actors.page = defaultSearchValues.actors.page;
@@ -42,10 +42,10 @@ const searchSlice = createSlice({
       state.directors.page = action.payload;
     },
     changeDirectorSort: (state, action: PayloadAction<string>) => {
-      state.directors.sort = action.payload;
+      state.directors.sortBy = action.payload;
     },
     changeDirectorSortOrder: (state, action: PayloadAction<string>) => {
-      state.directors.sortBy = action.payload;
+      state.directors.sortOrder = action.payload;
     },
     resetDirectorPage: (state) => {
       state.directors.page = defaultSearchValues.directors.page;

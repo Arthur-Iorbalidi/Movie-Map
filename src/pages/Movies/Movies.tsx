@@ -2,12 +2,16 @@ import Grid from '@src/components/Grid/Grid';
 import Item from '@src/components/Item/Item';
 import Pagination from '@src/components/Pagination/Pagination';
 import SearchForm from '@src/components/SearchForm/SearchForm';
+import Sorting from '@src/components/Sorting/Sorting';
 import routes from '@src/constants/routes';
+import sortOptions, { ISortOption } from '@src/constants/sortOptions';
 import useAppSelector from '@src/hooks/useAppSelector';
 import serverAPI from '@src/services/serverAPI';
 import {
   changeMoviesPage,
   changeMoviesSearch,
+  changeMoviesSort,
+  changeMoviesSortOrder,
   resetMoviesPage,
 } from '@src/store/slices/searchSlice';
 import {
@@ -81,12 +85,22 @@ const Movies = () => {
     dispatch(changeMoviesPage(params.page + count));
   };
 
+  const handleChangeSorting = (sortOption: ISortOption) => {
+    dispatch(changeMoviesSort(sortOption.value.sortBy));
+    dispatch(changeMoviesSortOrder(sortOption.value.sortOrder));
+  };
+
   return (
     <section className={styles.movies_page}>
       <div className={styles.wrapper}>
         <SearchForm
           handleChangeQuery={handleChangeSearch}
           currentSearchValue={params.search}
+        />
+
+        <Sorting
+          sortOptions={sortOptions.movies}
+          handleChangeSorting={handleChangeSorting}
         />
 
         <h2 className={styles.header}>Movies</h2>
