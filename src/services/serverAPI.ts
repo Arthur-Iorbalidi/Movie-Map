@@ -1,9 +1,11 @@
 import {
   IActor,
+  IActorsResponse,
   IAuthUserResponse,
   ICheckUserResponse,
   ICreateUserDto,
   IDirector,
+  IDirectorsResponse,
   IErrorResponse,
   ILoginUserDto,
   IMovie,
@@ -114,7 +116,7 @@ class ServerAPI {
     }
   }
 
-  async removeMovieToFavorites(
+  async removeMovieFromFavorites(
     id: number,
     successCallback?: (id: number) => void,
     unathorizedCallback?: () => void,
@@ -123,6 +125,118 @@ class ServerAPI {
       const token = this.getToken();
 
       const response = await this.api.delete(`users/favorites/movie/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      successCallback?.(id);
+
+      return response;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+
+      return e;
+    }
+  }
+
+  async addActorToFavorites(
+    id: number,
+    successCallback?: (id: number) => void,
+    unathorizedCallback?: () => void,
+  ) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.post(
+        `users/favorites/actor/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      successCallback?.(id);
+
+      return response;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+
+      return e;
+    }
+  }
+
+  async removeActorFromFavorites(
+    id: number,
+    successCallback?: (id: number) => void,
+    unathorizedCallback?: () => void,
+  ) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.delete(`users/favorites/actor/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      successCallback?.(id);
+
+      return response;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+
+      return e;
+    }
+  }
+
+  async addDirectorToFavorites(
+    id: number,
+    successCallback?: (id: number) => void,
+    unathorizedCallback?: () => void,
+  ) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.post(
+        `users/favorites/director/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      successCallback?.(id);
+
+      return response;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+
+      return e;
+    }
+  }
+
+  async removeDirectorFromFavorites(
+    id: number,
+    successCallback?: (id: number) => void,
+    unathorizedCallback?: () => void,
+  ) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.delete(`users/favorites/director/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -164,8 +278,16 @@ class ServerAPI {
     return response.data;
   }
 
-  async getActors(): Promise<IActor[]> {
-    const response = await this.api.get('actors');
+  async getActors(params: ISearch): Promise<IActorsResponse> {
+    const response = await this.api.get('actors', {
+      params: {
+        ...(params.search !== '' ? { search: params.search } : {}),
+        ...(params.sortBy !== '' ? { sortBy: params.sortBy } : {}),
+        ...(params.sortOrder !== '' ? { sortOrder: params.sortOrder } : {}),
+        page: params.page,
+        limit: params.limit,
+      },
+    });
 
     return response.data;
   }
@@ -176,8 +298,16 @@ class ServerAPI {
     return response.data;
   }
 
-  async getDirectors(): Promise<IDirector[]> {
-    const response = await this.api.get('directors');
+  async getDirectors(params: ISearch): Promise<IDirectorsResponse> {
+    const response = await this.api.get('directors', {
+      params: {
+        ...(params.search !== '' ? { search: params.search } : {}),
+        ...(params.sortBy !== '' ? { sortBy: params.sortBy } : {}),
+        ...(params.sortOrder !== '' ? { sortOrder: params.sortOrder } : {}),
+        page: params.page,
+        limit: params.limit,
+      },
+    });
 
     return response.data;
   }

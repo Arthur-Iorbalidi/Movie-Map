@@ -125,7 +125,10 @@ const sortOptions = {
     },
     {
       tittle: 'Birthday ASC',
-      value: {},
+      value: {
+        sortBy: 'birthday',
+        sortOrder: 'ASC',
+      },
     },
     {
       tittle: 'Birthday DESC',

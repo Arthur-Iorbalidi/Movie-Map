@@ -40,6 +40,16 @@ interface IMoviesResponse {
   pagination: IPagination;
 }
 
+interface IActorsResponse {
+  data: IActor[];
+  pagination: IPagination;
+}
+
+interface IDirectorsResponse {
+  data: IDirector[];
+  pagination: IPagination;
+}
+
 interface IPagination {
   total: number;
   limit: number;
@@ -98,10 +108,12 @@ interface IErrorResponse {
 
 export type {
   IActor,
+  IActorsResponse,
   IAuthUserResponse,
   ICheckUserResponse,
   ICreateUserDto,
   IDirector,
+  IDirectorsResponse,
   IErrorResponse,
   ILoginUserDto,
   IMovie,

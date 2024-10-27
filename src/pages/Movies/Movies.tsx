@@ -58,7 +58,7 @@ const Movies = () => {
 
   const toggleFavorites = (id: number) => {
     if (isInFavorites(id)) {
-      serverAPI.removeMovieToFavorites(id, succesRemove, unathorizedCallback);
+      serverAPI.removeMovieFromFavorites(id, succesRemove, unathorizedCallback);
     } else {
       serverAPI.addMovieToFavorites(id, succesAdd, unathorizedCallback);
     }

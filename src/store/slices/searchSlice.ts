@@ -20,54 +20,54 @@ const searchSlice = createSlice({
     resetMoviesPage: (state) => {
       state.movies.page = defaultSearchValues.movies.page;
     },
-    changeActorSearch: (state, action: PayloadAction<string>) => {
+    changeActorsSearch: (state, action: PayloadAction<string>) => {
       state.actors.search = action.payload;
     },
-    changeActorPage: (state, action: PayloadAction<number>) => {
+    changeActorsPage: (state, action: PayloadAction<number>) => {
       state.actors.page = action.payload;
     },
-    changeActorSort: (state, action: PayloadAction<string>) => {
+    changeActorsSort: (state, action: PayloadAction<string>) => {
       state.actors.sortBy = action.payload;
     },
-    changeActorSortOrder: (state, action: PayloadAction<string>) => {
+    changeActorsSortOrder: (state, action: PayloadAction<string>) => {
       state.actors.sortOrder = action.payload;
     },
-    resetActorPage: (state) => {
+    resetActorsPage: (state) => {
       state.actors.page = defaultSearchValues.actors.page;
     },
-    changeDirectorSearch: (state, action: PayloadAction<string>) => {
+    changeDirectorsSearch: (state, action: PayloadAction<string>) => {
       state.directors.search = action.payload;
     },
-    changeDirectorPage: (state, action: PayloadAction<number>) => {
+    changeDirectorsPage: (state, action: PayloadAction<number>) => {
       state.directors.page = action.payload;
     },
-    changeDirectorSort: (state, action: PayloadAction<string>) => {
+    changeDirectorsSort: (state, action: PayloadAction<string>) => {
       state.directors.sortBy = action.payload;
     },
-    changeDirectorSortOrder: (state, action: PayloadAction<string>) => {
+    changeDirectorsSortOrder: (state, action: PayloadAction<string>) => {
       state.directors.sortOrder = action.payload;
     },
-    resetDirectorPage: (state) => {
+    resetDirectorsPage: (state) => {
       state.directors.page = defaultSearchValues.directors.page;
     },
   },
 });
 
 export const {
-  changeActorPage,
-  changeActorSearch,
-  changeActorSort,
-  changeActorSortOrder,
-  changeDirectorPage,
-  changeDirectorSearch,
-  changeDirectorSort,
-  changeDirectorSortOrder,
+  changeActorsPage,
+  changeActorsSearch,
+  changeActorsSort,
+  changeActorsSortOrder,
+  changeDirectorsPage,
+  changeDirectorsSearch,
+  changeDirectorsSort,
+  changeDirectorsSortOrder,
   changeMoviesPage,
   changeMoviesSearch,
   changeMoviesSort,
   changeMoviesSortOrder,
-  resetActorPage,
-  resetDirectorPage,
+  resetActorsPage,
+  resetDirectorsPage,
   resetMoviesPage,
 } = searchSlice.actions;
 export const searchReducer = searchSlice.reducer;
