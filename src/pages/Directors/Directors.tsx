@@ -4,7 +4,7 @@ import Pagination from '@src/components/Pagination/Pagination';
 import SearchForm from '@src/components/SearchForm/SearchForm';
 import Sorting from '@src/components/Sorting/Sorting';
 import routes from '@src/constants/routes';
-import sortOptions, { ISortOption } from '@src/constants/sortOptions';
+import sortOptions from '@src/constants/sortOptions';
 import useAppSelector from '@src/hooks/useAppSelector';
 import serverAPI from '@src/services/serverAPI';
 import {
@@ -93,9 +93,11 @@ const Directors = () => {
     dispatch(changeDirectorsPage(params.page + count));
   };
 
-  const handleChangeSorting = (sortOption: ISortOption) => {
-    dispatch(changeDirectorsSort(sortOption.value.sortBy));
-    dispatch(changeDirectorsSortOrder(sortOption.value.sortOrder));
+  const handleChangeSorting = (index: number) => {
+    dispatch(changeDirectorsSort(sortOptions.directors[index].value.sortBy));
+    dispatch(
+      changeDirectorsSortOrder(sortOptions.directors[index].value.sortOrder),
+    );
   };
 
   return (
@@ -107,7 +109,7 @@ const Directors = () => {
         />
 
         <Sorting
-          sortOptions={sortOptions.directors}
+          sortOptions={sortOptions.directors.map((elem) => elem.tittle)}
           currentSortOptionIndex={currentSortOptionIndex}
           handleChangeSorting={handleChangeSorting}
         />

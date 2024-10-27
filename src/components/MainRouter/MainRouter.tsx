@@ -32,10 +32,7 @@ const MainRouter = () => {
             path={routes.account}
             element={isAuth ? <Account /> : <Navigate to={routes.login} />}
           />
-          <Route
-            path={routes.favorites}
-            element={isAuth ? <Favorites /> : <Navigate to={routes.login} />}
-          />
+          <Route path={routes.favorites} element={<Favorites />} />
         </Route>
       </Routes>
     </>

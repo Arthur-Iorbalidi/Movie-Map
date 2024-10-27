@@ -339,6 +339,66 @@ class ServerAPI {
     }
   }
 
+  async getFavoriteMovies(
+    unathorizedCallback?: () => void,
+  ): Promise<IMovie[] | undefined> {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.get('users/favorites/movies', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      return response.data;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+    }
+  }
+
+  async getFavoriteActors(
+    unathorizedCallback?: () => void,
+  ): Promise<IActor[] | undefined> {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.get('users/favorites/actors', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      return response.data;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+    }
+  }
+
+  async getFavoriteDirectors(
+    unathorizedCallback?: () => void,
+  ): Promise<IDirector[] | undefined> {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.get('users/favorites/directors', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      return response.data;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+    }
+  }
+
   getToken() {
     return storageAPI.get('token');
   }

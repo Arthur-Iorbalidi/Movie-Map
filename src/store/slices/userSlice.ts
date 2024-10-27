@@ -2,12 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IUser } from '@src/types/serverAPITypes';
 
 interface UserState {
-  isAuthorized: boolean;
+  isAuthorized: boolean | undefined;
   userInfo?: IUser;
 }
 
 const initialState: UserState = {
-  isAuthorized: false,
+  isAuthorized: undefined,
   userInfo: undefined,
 };
 

@@ -1,11 +1,9 @@
-import { ISortOption } from '@src/constants/sortOptions';
-
 import styles from './Sorting.module.scss';
 
 interface IProps {
-  sortOptions: ISortOption[];
+  sortOptions: string[];
   currentSortOptionIndex: number;
-  handleChangeSorting: (sortOption: ISortOption) => void;
+  handleChangeSorting: (index: number) => void;
 }
 
 const Sorting = ({
@@ -14,7 +12,7 @@ const Sorting = ({
   handleChangeSorting,
 }: IProps) => {
   const onChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    handleChangeSorting(sortOptions[Number(event.target.value)]);
+    handleChangeSorting(Number(event.target.value));
   };
 
   return (
@@ -26,8 +24,8 @@ const Sorting = ({
         value={currentSortOptionIndex}
       >
         {sortOptions.map((sortOption, index) => (
-          <option value={index} key={sortOption.tittle}>
-            {sortOption.tittle}
+          <option value={index} key={sortOption}>
+            {sortOption}
           </option>
         ))}
       </select>

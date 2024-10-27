@@ -3,9 +3,9 @@ import serverAPI from '@src/services/serverAPI';
 const toggleFavoriteMovie = (
   id: number,
   isInFavorites: boolean,
-  succesAdd: (id: number) => void,
-  succesRemove: (id: number) => void,
-  unathorizedCallback: () => void,
+  succesAdd: (id: number) => void = () => {},
+  succesRemove: (id: number) => void = () => {},
+  unathorizedCallback: () => void = () => {},
 ) => {
   if (isInFavorites) {
     serverAPI.removeMovieFromFavorites(id, succesRemove, unathorizedCallback);
@@ -17,9 +17,9 @@ const toggleFavoriteMovie = (
 const toggleFavoriteActor = (
   id: number,
   isInFavorites: boolean,
-  succesAdd: (id: number) => void,
-  succesRemove: (id: number) => void,
-  unathorizedCallback: () => void,
+  succesAdd: (id: number) => void = () => {},
+  succesRemove: (id: number) => void = () => {},
+  unathorizedCallback: () => void = () => {},
 ) => {
   if (isInFavorites) {
     serverAPI.removeActorFromFavorites(id, succesRemove, unathorizedCallback);
@@ -31,9 +31,9 @@ const toggleFavoriteActor = (
 const toggleFavoriteDirector = (
   id: number,
   isInFavorites: boolean,
-  succesAdd: (id: number) => void,
-  succesRemove: (id: number) => void,
-  unathorizedCallback: () => void,
+  succesAdd: (id: number) => void = () => {},
+  succesRemove: (id: number) => void = () => {},
+  unathorizedCallback: () => void = () => {},
 ) => {
   if (isInFavorites) {
     serverAPI.removeDirectorFromFavorites(
