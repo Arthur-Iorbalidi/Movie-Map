@@ -5,7 +5,7 @@ import useAppDispatch from '@src/hooks/useAppDispatch';
 import useAppSelector from '@src/hooks/useAppSelector';
 import serverAPI from '@src/services/serverAPI';
 import { changeUserInfo } from '@src/store/slices/userSlice';
-import { IUser } from '@src/types/serverAPITypes';
+import { IAuthUserResponse } from '@src/types/serverAPITypes';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -56,9 +56,10 @@ const MainUserInfo = () => {
     setIsLoading(true);
   };
 
-  const succesReg = (value: IUser) => {
+  const succesReg = (value: IAuthUserResponse) => {
     setIsLoading(false);
-    dispatch(changeUserInfo(value));
+    dispatch(changeUserInfo(value.user));
+    serverAPI.setToken(value.token);
     setIsDisabled(true);
     setModal({ isShowed: true, isSucces: true, text: 'Success' });
     clearModal();

@@ -12,7 +12,6 @@ import {
   IMoviesResponse,
   ISearch,
   IUpdateUserDto,
-  IUser,
 } from '@src/types/serverAPITypes';
 import axios from 'axios';
 
@@ -75,7 +74,7 @@ class ServerAPI {
   async updateUserInfo(
     id: number,
     userDto: IUpdateUserDto,
-    successCallback?: (value: IUser) => void,
+    successCallback?: (value: IAuthUserResponse) => void,
     errorCallback?: (message?: string) => void,
   ) {
     try {
