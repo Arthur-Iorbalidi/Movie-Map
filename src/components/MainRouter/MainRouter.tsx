@@ -1,5 +1,4 @@
 import routes from '@src/constants/routes';
-import useAppSelector from '@src/hooks/useAppSelector';
 import MainLayout from '@src/layouts/MainLayout/MainLayout';
 import Account from '@src/pages/Account/Account';
 import Actors from '@src/pages/Actors/Actors';
@@ -12,8 +11,6 @@ import Movies from '@src/pages/Movies/Movies';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 const MainRouter = () => {
-  const isAuth = useAppSelector((state) => state.userReducer.isAuthorized);
-
   return (
     <>
       <Routes>
@@ -28,10 +25,7 @@ const MainRouter = () => {
             path={routes.detailedDirector}
             element={<DetailedDirector />}
           />
-          <Route
-            path={routes.account}
-            element={isAuth ? <Account /> : <Navigate to={routes.login} />}
-          />
+          <Route path={routes.account} element={<Account />} />
           <Route path={routes.favorites} element={<Favorites />} />
         </Route>
       </Routes>

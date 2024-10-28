@@ -11,6 +11,8 @@ import {
   IMovie,
   IMoviesResponse,
   ISearch,
+  IUpdateUserDto,
+  IUser,
 } from '@src/types/serverAPITypes';
 import axios from 'axios';
 
@@ -59,6 +61,43 @@ class ServerAPI {
         email: userDto.email,
         password: userDto.password,
       });
+
+      successCallback?.(response.data);
+    } catch (error) {
+      if ((error as IErrorResponse).response) {
+        errorCallback?.((error as IErrorResponse).response.data.message);
+      } else {
+        errorCallback?.('Error');
+      }
+    }
+  }
+
+  async updateUserInfo(
+    id: number,
+    userDto: IUpdateUserDto,
+    successCallback?: (value: IUser) => void,
+    errorCallback?: (message?: string) => void,
+  ) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.patch(
+        `users/${id}`,
+        {
+          ...(userDto.name !== '' ? { name: userDto.name } : {}),
+          ...(userDto.surname !== '' ? { surname: userDto.surname } : {}),
+          ...(userDto.email !== '' ? { email: userDto.email } : {}),
+          ...(userDto.password !== '' ? { password: userDto.password } : {}),
+          ...(userDto.oldPassword !== ''
+            ? { oldPassword: userDto.oldPassword }
+            : {}),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
 
       successCallback?.(response.data);
     } catch (error) {

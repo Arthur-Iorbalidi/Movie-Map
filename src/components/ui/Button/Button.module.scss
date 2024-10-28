@@ -4,15 +4,26 @@
   font-size: global.$fontSizeCaptionSmall;
   font-weight: 500;
   padding: global.$extraSmallPadding global.$smallPadding;
-  background-color: global.$buttonPrimaryBackgroundColor;
   border-radius: global.$smallBorderRadius;
-  color: global.$primaryColor;
   transition: 400ms all;
+}
+
+.normal {
+  background-color: global.$buttonPrimaryBackgroundColor;
+  color: global.$primaryColor;
+}
+
+.danger {
+  background-color: global.$buttonDangerBackgroundColor;
+  color: global.$lightColor;
 }
 
 @media (hover:hover) {
   .btn:hover {
-    color: global.$primaryColor;
     background-color: global.$buttonPrimaryActiveBackgroundColor;
+
+    &.danger {
+      background-color: global.$buttonDangerActiveBackgroundColor;
+    }
   }
 }

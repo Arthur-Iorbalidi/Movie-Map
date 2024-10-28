@@ -67,7 +67,8 @@ interface ISearch {
 
 interface IUser {
   id: number;
-  username: string;
+  name: string;
+  surname: string;
   email: string;
   movies: Array<{ id: number }>;
   actors: Array<{ id: number }>;
@@ -79,6 +80,10 @@ interface ICreateUserDto {
   surname: string;
   email: string;
   password: string;
+}
+
+interface IUpdateUserDto extends Partial<ICreateUserDto> {
+  oldPassword?: string;
 }
 
 interface ILoginUserDto {
@@ -120,5 +125,6 @@ export type {
   IMoviesResponse,
   IPagination,
   ISearch,
+  IUpdateUserDto,
   IUser,
 };

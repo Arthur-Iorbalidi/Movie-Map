@@ -80,13 +80,13 @@ const Header = () => {
               </ul>
             </nav>
             <div className={styles.auth}>
-              {!isAuth ? (
+              {isAuth === false ? (
                 <>
                   <Link className={styles.btn} to={routes.login}>
                     <Button value="Log In" />
                   </Link>
                 </>
-              ) : (
+              ) : isAuth === true ? (
                 <button
                   onClick={handleToggleAuthUserMenu}
                   className={styles.account_btn}
@@ -97,7 +97,7 @@ const Header = () => {
                     alt="Account"
                   />
                 </button>
-              )}
+              ) : null}
               <AuthUserMenu
                 toggleAuthUserMenu={toggleAuthUserMenu}
                 isAuthUserMenuOpened={isAuthUserMenuOpened}
