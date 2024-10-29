@@ -12,8 +12,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import Grid from '../Grid/Grid';
-import Item from '../Item/Item';
+import Grid, { LayoutType } from '../Grid/Grid';
+import Item, { Appearance } from '../Item/Item';
 
 const FavoritesDirectors = () => {
   const navigate = useNavigate();
@@ -62,6 +62,7 @@ const FavoritesDirectors = () => {
     <Grid
       isLoading={isLoading}
       message={directors?.length === 0 ? 'There is nothing here' : undefined}
+      layoutType={LayoutType.twoColumns}
     >
       {directors &&
         directors.map((director) => (
@@ -78,6 +79,7 @@ const FavoritesDirectors = () => {
             image={imageAPI.getImage(director.image!)}
             isActive={isInArray(director.id, favoritesDirectors)}
             navigateTo={`${routes.directors}/${director.id}`}
+            appearance={Appearance.horizontal}
           />
         ))}
     </Grid>

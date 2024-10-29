@@ -10,8 +10,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import Grid from '../Grid/Grid';
-import Item from '../Item/Item';
+import Grid, { LayoutType } from '../Grid/Grid';
+import Item, { Appearance } from '../Item/Item';
 
 const FavoritesMovies = () => {
   const navigate = useNavigate();
@@ -58,6 +58,7 @@ const FavoritesMovies = () => {
     <Grid
       isLoading={isLoading}
       message={movies?.length === 0 ? 'There is nothing here' : undefined}
+      layoutType={LayoutType.twoColumns}
     >
       {movies &&
         movies.map((movie) => (
@@ -71,6 +72,7 @@ const FavoritesMovies = () => {
             image={imageAPI.getImage(movie.image!)}
             isActive={isInArray(movie.id, favoritesMovies)}
             navigateTo={`${routes.movies}/${movie.id}`}
+            appearance={Appearance.horizontal}
           />
         ))}
     </Grid>
