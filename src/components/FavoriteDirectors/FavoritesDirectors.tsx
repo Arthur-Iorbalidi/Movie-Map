@@ -1,5 +1,6 @@
 import routes from '@src/constants/routes';
 import useAppSelector from '@src/hooks/useAppSelector';
+import imageAPI from '@src/services/imageAPI';
 import serverAPI from '@src/services/serverAPI';
 import { removeDirectorFromFavorites } from '@src/store/slices/userSlice';
 import { IDirector } from '@src/types/serverAPITypes';
@@ -74,7 +75,7 @@ const FavoritesDirectors = () => {
                 ? `${getShortPeriodOfLife(director.birthday, director.dateOfDeath)} (${calculateAge(director.birthday, director.dateOfDeath)} years)`
                 : `${calculateAge(director.birthday, director.dateOfDeath)} years`
             }
-            image={director.image}
+            image={imageAPI.getImage(director.image!)}
             isActive={isInArray(director.id, favoritesDirectors)}
             navigateTo={`${routes.directors}/${director.id}`}
           />

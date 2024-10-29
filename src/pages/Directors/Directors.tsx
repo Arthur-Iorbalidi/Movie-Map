@@ -6,6 +6,7 @@ import Sorting from '@src/components/Sorting/Sorting';
 import routes from '@src/constants/routes';
 import sortOptions from '@src/constants/sortOptions';
 import useAppSelector from '@src/hooks/useAppSelector';
+import imageAPI from '@src/services/imageAPI';
 import serverAPI from '@src/services/serverAPI';
 import {
   changeDirectorsPage,
@@ -129,7 +130,7 @@ const Directors = () => {
                     ? `${getShortPeriodOfLife(director.birthday, director.dateOfDeath)} (${calculateAge(director.birthday, director.dateOfDeath)} years)`
                     : `${calculateAge(director.birthday, director.dateOfDeath)} years`
                 }
-                image={director.image}
+                image={imageAPI.getImage(director.image!)}
                 isActive={isInArray(director.id, favoritesDirectors)}
                 navigateTo={`${routes.directors}/${director.id}`}
               />

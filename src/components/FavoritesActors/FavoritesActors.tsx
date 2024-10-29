@@ -1,5 +1,6 @@
 import routes from '@src/constants/routes';
 import useAppSelector from '@src/hooks/useAppSelector';
+import imageAPI from '@src/services/imageAPI';
 import serverAPI from '@src/services/serverAPI';
 import { removeActorFromFavorites } from '@src/store/slices/userSlice';
 import { IActor } from '@src/types/serverAPITypes';
@@ -72,7 +73,7 @@ const FavoritesActors = () => {
                 ? `${getShortPeriodOfLife(actor.birthday, actor.dateOfDeath)} (${calculateAge(actor.birthday, actor.dateOfDeath)} years)`
                 : `${calculateAge(actor.birthday, actor.dateOfDeath)} years`
             }
-            image={actor.image}
+            image={imageAPI.getImage(actor.image!)}
             isActive={isInArray(actor.id, favoritesActors)}
             navigateTo={`${routes.actors}/${actor.id}`}
           />

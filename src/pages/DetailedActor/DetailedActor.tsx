@@ -4,6 +4,7 @@ import Message from '@src/components/ui/Message/Message';
 import images from '@src/constants/images';
 import routes from '@src/constants/routes';
 import useAppSelector from '@src/hooks/useAppSelector';
+import imageAPI from '@src/services/imageAPI';
 import serverAPI from '@src/services/serverAPI';
 import {
   addActorToFavorites,
@@ -91,7 +92,7 @@ const DetailedActor = () => {
             <div className={styles.img_wrapper}>
               <img
                 className={styles.artwork_img}
-                src={actor.image}
+                src={imageAPI.getImage(actor.image!)}
                 alt="actor"
                 onError={(e) => {
                   e.currentTarget.src = images.imgPlaceholder;

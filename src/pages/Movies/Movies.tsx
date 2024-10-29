@@ -6,6 +6,7 @@ import Sorting from '@src/components/Sorting/Sorting';
 import routes from '@src/constants/routes';
 import sortOptions from '@src/constants/sortOptions';
 import useAppSelector from '@src/hooks/useAppSelector';
+import imageAPI from '@src/services/imageAPI';
 import serverAPI from '@src/services/serverAPI';
 import {
   changeMoviesPage,
@@ -120,7 +121,7 @@ const Movies = () => {
                 tittle={movie.tittle}
                 subtittle={movie.genre}
                 caption={new Date(movie.creationDate).getFullYear().toString()}
-                image={movie.image}
+                image={imageAPI.getImage(movie.image!)}
                 isActive={isInArray(movie.id, favoritesMovies)}
                 navigateTo={`${routes.movies}/${movie.id}`}
               />
