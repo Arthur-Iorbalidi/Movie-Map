@@ -72,7 +72,7 @@ const FavoritesActors = () => {
                 ? `${getShortPeriodOfLife(actor.birthday, actor.dateOfDeath)} (${calculateAge(actor.birthday, actor.dateOfDeath)} years)`
                 : `${calculateAge(actor.birthday, actor.dateOfDeath)} years`
             }
-            imgUrl={actor.imgUrl}
+            image={actor.image}
             isActive={isInArray(actor.id, favoritesActors)}
             navigateTo={`${routes.actors}/${actor.id}`}
           />

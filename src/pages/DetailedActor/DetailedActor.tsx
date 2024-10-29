@@ -91,7 +91,7 @@ const DetailedActor = () => {
             <div className={styles.img_wrapper}>
               <img
                 className={styles.artwork_img}
-                src={actor.imgUrl}
+                src={actor.image}
                 alt="actor"
                 onError={(e) => {
                   e.currentTarget.src = images.imgPlaceholder;

@@ -14,7 +14,7 @@ interface IProps {
   tittle: string;
   subtittle?: string;
   caption?: string;
-  imgUrl?: string;
+  image?: string;
   isActive: boolean;
   navigateTo: string;
   appearance?: Appearance;
@@ -26,7 +26,7 @@ const Item = ({
   tittle,
   subtittle,
   caption,
-  imgUrl,
+  image,
   isActive,
   navigateTo,
   handleBtnClickCallback,
@@ -55,7 +55,7 @@ const Item = ({
     <Link to={navigateTo} className={`${styles.item} ${classNameSwitcher()}`}>
       <div className={styles.img_wrapper}>
         <img
-          src={imgUrl}
+          src={image}
           alt="item"
           className={styles.item_img}
           onError={(e) => {

@@ -91,7 +91,7 @@ const DetailedDirector = () => {
             <div className={styles.img_wrapper}>
               <img
                 className={styles.artwork_img}
-                src={director.imgUrl}
+                src={director.image}
                 alt="director"
                 onError={(e) => {
                   e.currentTarget.src = images.imgPlaceholder;

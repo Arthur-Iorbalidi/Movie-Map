@@ -4,7 +4,7 @@ interface IMovie {
   description?: string;
   creationDate: string;
   genre: string;
-  logoUrl?: string;
+  image?: string;
   budget: number;
   actors?: IActor[];
   directors?: IDirector[];
@@ -18,7 +18,7 @@ interface IActor {
   height?: string;
   birthday: string;
   dateOfDeath?: null;
-  imgUrl?: string;
+  image?: string;
   placeOfBirth: string;
   movies?: IMovie[];
 }
@@ -30,7 +30,7 @@ interface IDirector {
   description?: string;
   birthday: string;
   dateOfDeath?: null;
-  imgUrl?: string;
+  image?: string;
   placeOfBirth: string;
   movies?: IMovie[];
 }

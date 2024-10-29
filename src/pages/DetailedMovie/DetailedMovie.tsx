@@ -90,7 +90,7 @@ const DetailedMovie = () => {
             <div className={styles.img_wrapper}>
               <img
                 className={styles.artwork_img}
-                src={movie.logoUrl}
+                src={movie.image}
                 alt="movie"
                 onError={(e) => {
                   e.currentTarget.src = images.imgPlaceholder;

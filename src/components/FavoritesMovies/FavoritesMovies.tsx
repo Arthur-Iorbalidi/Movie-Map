@@ -67,7 +67,7 @@ const FavoritesMovies = () => {
             tittle={movie.tittle}
             subtittle={movie.genre}
             caption={new Date(movie.creationDate).getFullYear().toString()}
-            imgUrl={movie.logoUrl}
+            image={movie.image}
             isActive={isInArray(movie.id, favoritesMovies)}
             navigateTo={`${routes.movies}/${movie.id}`}
           />

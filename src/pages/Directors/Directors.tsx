@@ -129,7 +129,7 @@ const Directors = () => {
                     ? `${getShortPeriodOfLife(director.birthday, director.dateOfDeath)} (${calculateAge(director.birthday, director.dateOfDeath)} years)`
                     : `${calculateAge(director.birthday, director.dateOfDeath)} years`
                 }
-                imgUrl={director.imgUrl}
+                image={director.image}
                 isActive={isInArray(director.id, favoritesDirectors)}
                 navigateTo={`${routes.directors}/${director.id}`}
               />
