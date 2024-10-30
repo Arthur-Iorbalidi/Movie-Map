@@ -13,7 +13,7 @@ interface IProps {
   isAuthUserMenuOpened: boolean;
 }
 
-const BurgerMenu = ({ toggleAuthUserMenu, isAuthUserMenuOpened }: IProps) => {
+const AuthUserMenu = ({ toggleAuthUserMenu, isAuthUserMenuOpened }: IProps) => {
   const dispatch = useAppDispatch();
 
   const menuRef = useRef<HTMLDivElement>(null);
@@ -65,4 +65,4 @@ const BurgerMenu = ({ toggleAuthUserMenu, isAuthUserMenuOpened }: IProps) => {
   );
 };
 
-export default BurgerMenu;
+export default AuthUserMenu;
