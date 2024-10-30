@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Grid, { LayoutType } from '../Grid/Grid';
 import Item, { Appearance } from '../Item/Item';
+import MoviesReports from '../MoviesReports/MoviesReports';
 
 const FavoritesMovies = () => {
   const navigate = useNavigate();
@@ -55,27 +56,30 @@ const FavoritesMovies = () => {
   };
 
   return (
-    <Grid
-      isLoading={isLoading}
-      message={movies?.length === 0 ? 'There is nothing here' : undefined}
-      layoutType={LayoutType.twoColumns}
-    >
-      {movies &&
-        movies.map((movie) => (
-          <Item
-            key={movie.id}
-            id={movie.id}
-            handleBtnClickCallback={handleToggleFavorites}
-            title={movie.title}
-            subtitle={movie.genre}
-            caption={new Date(movie.creationDate).getFullYear().toString()}
-            image={imageAPI.getImage(movie.image!)}
-            isActive={isInArray(movie.id, favoritesMovies)}
-            navigateTo={`${routes.movies}/${movie.id}`}
-            appearance={Appearance.horizontal}
-          />
-        ))}
-    </Grid>
+    <>
+      <MoviesReports />
+      <Grid
+        isLoading={isLoading}
+        message={movies?.length === 0 ? 'There is nothing here' : undefined}
+        layoutType={LayoutType.twoColumns}
+      >
+        {movies &&
+          movies.map((movie) => (
+            <Item
+              key={movie.id}
+              id={movie.id}
+              handleBtnClickCallback={handleToggleFavorites}
+              title={movie.title}
+              subtitle={movie.genre}
+              caption={new Date(movie.creationDate).getFullYear().toString()}
+              image={imageAPI.getImage(movie.image!)}
+              isActive={isInArray(movie.id, favoritesMovies)}
+              navigateTo={`${routes.movies}/${movie.id}`}
+              appearance={Appearance.horizontal}
+            />
+          ))}
+      </Grid>
+    </>
   );
 };
 

@@ -437,6 +437,44 @@ class ServerAPI {
     }
   }
 
+  async getFavoriteMoviesReportPdf(unathorizedCallback?: () => void) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.get('reports/favorites/movies/pdf', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        responseType: 'blob',
+      });
+
+      return response.data;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+    }
+  }
+
+  async getFavoriteMoviesReportDocx(unathorizedCallback?: () => void) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.get('reports/favorites/movies/docx', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        responseType: 'blob',
+      });
+
+      return response.data;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+    }
+  }
+
   getToken() {
     return storageAPI.get('token');
   }

@@ -1,6 +1,9 @@
 import routes from '@src/constants/routes';
+import useAppDispatch from '@src/hooks/useAppDispatch';
 import useAppSelector from '@src/hooks/useAppSelector';
 import useClickOutside from '@src/hooks/useClickOutside';
+import serverAPI from '@src/services/serverAPI';
+import { changeIsAuthorized } from '@src/store/slices/userSlice';
 import { useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +15,8 @@ interface IProps {
 }
 
 const BurgerMenu = ({ toggleBurgerMenu, isBurgerMenuOpened }: IProps) => {
+  const dispatch = useAppDispatch();
+
   const isAuth = useAppSelector((state) => state.userReducer.isAuthorized);
 
   const menuRef = useRef<HTMLDivElement>(null);
@@ -21,6 +26,12 @@ const BurgerMenu = ({ toggleBurgerMenu, isBurgerMenuOpened }: IProps) => {
   }, [toggleBurgerMenu]);
 
   useClickOutside(menuRef, handleClickOutside);
+
+  const logout = () => {
+    toggleBurgerMenu();
+    serverAPI.logout();
+    dispatch(changeIsAuthorized(false));
+  };
 
   return (
     <>
@@ -76,7 +87,7 @@ const BurgerMenu = ({ toggleBurgerMenu, isBurgerMenuOpened }: IProps) => {
                   </Link>
                 </li>
                 <li>
-                  <button className={styles.link} onClick={toggleBurgerMenu}>
+                  <button className={styles.link} onClick={logout}>
                     <span className={styles.link_text}>Log out</span>
                   </button>
                 </li>
