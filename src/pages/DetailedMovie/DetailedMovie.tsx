@@ -106,12 +106,12 @@ const DetailedMovie = () => {
             </div>
             <div className={styles.info}>
               <div className={styles.main_info}>
-                <h2 className={styles.tittle}>{movie.tittle}</h2>
+                <h2 className={styles.title}>{movie.title}</h2>
               </div>
               <div className={styles.overview}>
-                <h2 className={styles.overview_tittle}>Overview</h2>
+                <h2 className={styles.overview_title}>Overview</h2>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>
+                  <span className={styles.overview_item_title}>
                     Creation Date:
                   </span>
                   <span className={styles.overview_item_value}>
@@ -119,19 +119,19 @@ const DetailedMovie = () => {
                   </span>
                 </p>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>genre:</span>
+                  <span className={styles.overview_item_title}>genre:</span>
                   <span className={styles.overview_item_value}>
                     {movie.genre}
                   </span>
                 </p>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>Budget:</span>
+                  <span className={styles.overview_item_title}>Budget:</span>
                   <span className={styles.overview_item_value}>
                     {`$${movie.budget}`}
                   </span>
                 </p>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>Director:</span>
+                  <span className={styles.overview_item_title}>Director:</span>
                   <span className={styles.overview_item_value}>
                     {movie.directors?.map((director, index) => (
                       <Fragment key={director.id}>
@@ -146,7 +146,7 @@ const DetailedMovie = () => {
                   </span>
                 </p>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>Actors:</span>
+                  <span className={styles.overview_item_title}>Actors:</span>
                   <span className={styles.overview_item_value}>
                     {movie.actors?.map((actor, index) => (
                       <Fragment key={actor.id}>
@@ -165,7 +165,7 @@ const DetailedMovie = () => {
             </div>
           </div>
           <div className={styles.description_wrapper}>
-            <h2 className={styles.description_tittle}>Description</h2>
+            <h2 className={styles.description_title}>Description</h2>
             <div className={styles.description}>{movie.description}</div>
           </div>
         </div>

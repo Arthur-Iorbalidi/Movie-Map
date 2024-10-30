@@ -1,49 +1,49 @@
 const sortOptions = {
   movies: [
     {
-      tittle: 'None',
+      title: 'None',
       value: {
         sortBy: '',
         sortOrder: '',
       },
     },
     {
-      tittle: 'Tittle ASC',
+      title: 'Title ASC',
       value: {
-        sortBy: 'tittle',
+        sortBy: 'title',
         sortOrder: 'ASC',
       },
     },
     {
-      tittle: 'Tittle DESC',
+      title: 'Title DESC',
       value: {
-        sortBy: 'tittle',
+        sortBy: 'title',
         sortOrder: 'DESC',
       },
     },
     {
-      tittle: 'Creation date ASC',
+      title: 'Creation date ASC',
       value: {
         sortBy: 'creationDate',
         sortOrder: 'ASC',
       },
     },
     {
-      tittle: 'Creation date DESC',
+      title: 'Creation date DESC',
       value: {
         sortBy: 'creationDate',
         sortOrder: 'DESC',
       },
     },
     {
-      tittle: 'Budget ASC',
+      title: 'Budget ASC',
       value: {
         sortBy: 'budget',
         sortOrder: 'ASC',
       },
     },
     {
-      tittle: 'Budget DESC',
+      title: 'Budget DESC',
       value: {
         sortBy: 'budget',
         sortOrder: 'DESC',
@@ -52,49 +52,49 @@ const sortOptions = {
   ],
   actors: [
     {
-      tittle: 'None',
+      title: 'None',
       value: {
         sortBy: '',
         sortOrder: '',
       },
     },
     {
-      tittle: 'Name ASC',
+      title: 'Name ASC',
       value: {
         sortBy: 'name',
         sortOrder: 'ASC',
       },
     },
     {
-      tittle: 'Name DESC',
+      title: 'Name DESC',
       value: {
         sortBy: 'name',
         sortOrder: 'DESC',
       },
     },
     {
-      tittle: 'Birthday ASC',
+      title: 'Birthday ASC',
       value: {
         sortBy: 'birthday',
         sortOrder: 'ASC',
       },
     },
     {
-      tittle: 'Birthday DESC',
+      title: 'Birthday DESC',
       value: {
         sortBy: 'birthday',
         sortOrder: 'DESC',
       },
     },
     {
-      tittle: 'Height ASC',
+      title: 'Height ASC',
       value: {
         sortBy: 'height',
         sortOrder: 'ASC',
       },
     },
     {
-      tittle: 'Height DESC',
+      title: 'Height DESC',
       value: {
         sortBy: 'height',
         sortOrder: 'DESC',
@@ -103,35 +103,35 @@ const sortOptions = {
   ],
   directors: [
     {
-      tittle: 'None',
+      title: 'None',
       value: {
         sortBy: '',
         sortOrder: '',
       },
     },
     {
-      tittle: 'Name ASC',
+      title: 'Name ASC',
       value: {
         sortBy: 'name',
         sortOrder: 'ASC',
       },
     },
     {
-      tittle: 'Name DESC',
+      title: 'Name DESC',
       value: {
         sortBy: 'name',
         sortOrder: 'DESC',
       },
     },
     {
-      tittle: 'Birthday ASC',
+      title: 'Birthday ASC',
       value: {
         sortBy: 'birthday',
         sortOrder: 'ASC',
       },
     },
     {
-      tittle: 'Birthday DESC',
+      title: 'Birthday DESC',
       value: {
         sortBy: 'birthday',
         sortOrder: 'DESC',
@@ -141,7 +141,7 @@ const sortOptions = {
 };
 
 interface ISortOption {
-  tittle: string;
+  title: string;
   value: {
     sortBy: string;
     sortOrder: string;

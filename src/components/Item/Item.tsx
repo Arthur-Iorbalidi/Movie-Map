@@ -11,8 +11,8 @@ export enum Appearance {
 
 interface IProps {
   id: number;
-  tittle: string;
-  subtittle?: string;
+  title: string;
+  subtitle?: string;
   caption?: string;
   image?: string;
   isActive: boolean;
@@ -23,8 +23,8 @@ interface IProps {
 
 const Item = ({
   id,
-  tittle,
-  subtittle,
+  title,
+  subtitle,
   caption,
   image,
   isActive,
@@ -65,9 +65,9 @@ const Item = ({
       </div>
       <div className={styles.info}>
         <div className={styles.details}>
-          <p className={styles.tittle}>{tittle}</p>
-          {subtittle && <p className={styles.subtittle}>{subtittle}</p>}
-          {caption && <p className={styles.subtittle}>{caption}</p>}
+          <p className={styles.title}>{title}</p>
+          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+          {caption && <p className={styles.subtitle}>{caption}</p>}
         </div>
         <div className={styles.favorite_btn_wrapper}>
           <FavoriteButton isInFavorites={isActive} onClick={handleBtnClick} />

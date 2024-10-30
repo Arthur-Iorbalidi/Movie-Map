@@ -66,8 +66,8 @@ const FavoritesMovies = () => {
             key={movie.id}
             id={movie.id}
             handleBtnClickCallback={handleToggleFavorites}
-            tittle={movie.tittle}
-            subtittle={movie.genre}
+            title={movie.title}
+            subtitle={movie.genre}
             caption={new Date(movie.creationDate).getFullYear().toString()}
             image={imageAPI.getImage(movie.image!)}
             isActive={isInArray(movie.id, favoritesMovies)}

@@ -70,8 +70,8 @@ const FavoritesDirectors = () => {
             key={director.id}
             id={director.id}
             handleBtnClickCallback={handleToggleFavorites}
-            tittle={`${director.name} ${director.surname}`}
-            subtittle={
+            title={`${director.name} ${director.surname}`}
+            subtitle={
               director.dateOfDeath
                 ? `${getShortPeriodOfLife(director.birthday, director.dateOfDeath)} (${calculateAge(director.birthday, director.dateOfDeath)} years)`
                 : `${calculateAge(director.birthday, director.dateOfDeath)} years`

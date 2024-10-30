@@ -106,7 +106,7 @@ const Actors = () => {
         />
 
         <Sorting
-          sortOptions={sortOptions.actors.map((elem) => elem.tittle)}
+          sortOptions={sortOptions.actors.map((elem) => elem.title)}
           currentSortOptionIndex={currentSortOptionIndex}
           handleChangeSorting={handleChangeSorting}
         />
@@ -120,8 +120,8 @@ const Actors = () => {
                 key={actor.id}
                 id={actor.id}
                 handleBtnClickCallback={handleToggleFavorites}
-                tittle={`${actor.name} ${actor.surname}`}
-                subtittle={
+                title={`${actor.name} ${actor.surname}`}
+                subtitle={
                   actor.dateOfDeath
                     ? `${getShortPeriodOfLife(actor.birthday, actor.dateOfDeath)} (${calculateAge(actor.birthday, actor.dateOfDeath)} years)`
                     : `${calculateAge(actor.birthday, actor.dateOfDeath)} years`

@@ -57,7 +57,7 @@
   justify-content: space-between;
   gap: 30px;
 
-  .tittle {
+  .title {
     font-size: global.$fontSizeSubheading;
   }
   
@@ -78,7 +78,7 @@
   flex-direction: column;
   gap: 16px;
 
-  .overview_tittle {
+  .overview_title {
     font-size: 32px;
     font-weight: 400;
   }
@@ -88,7 +88,7 @@
     gap: 10px;
   }
 
-  .overview_item_tittle {
+  .overview_item_title {
     font-size: 16px;
     color: global.$fourthColor;
   }
@@ -107,7 +107,7 @@
   margin-top: 30px;
 }
 
-.description_tittle {
+.description_title {
   text-align: center;
   font-weight: 400;
 }

@@ -108,26 +108,26 @@ const DetailedActor = () => {
             <div className={styles.info}>
               <div className={styles.main_info}>
                 <h2
-                  className={styles.tittle}
+                  className={styles.title}
                 >{`${actor.name} ${actor.surname}`}</h2>
               </div>
               <div className={styles.overview}>
-                <h2 className={styles.overview_tittle}>Overview</h2>
+                <h2 className={styles.overview_title}>Overview</h2>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>Age:</span>
+                  <span className={styles.overview_item_title}>Age:</span>
                   <span className={styles.overview_item_value}>
                     {`${calculateAge(actor.birthday, actor.dateOfDeath)} years`}
                   </span>
                 </p>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>Birthday:</span>
+                  <span className={styles.overview_item_title}>Birthday:</span>
                   <span className={styles.overview_item_value}>
                     {actor.birthday}
                   </span>
                 </p>
                 {actor.dateOfDeath && (
                   <p className={styles.overview_item}>
-                    <span className={styles.overview_item_tittle}>
+                    <span className={styles.overview_item_title}>
                       Date of death:
                     </span>
                     <span className={styles.overview_item_value}>
@@ -136,7 +136,7 @@ const DetailedActor = () => {
                   </p>
                 )}
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>
+                  <span className={styles.overview_item_title}>
                     Place of birth:
                   </span>
                   <span className={styles.overview_item_value}>
@@ -144,13 +144,13 @@ const DetailedActor = () => {
                   </span>
                 </p>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>Height:</span>
+                  <span className={styles.overview_item_title}>Height:</span>
                   <span className={styles.overview_item_value}>
                     {actor.height}
                   </span>
                 </p>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>Movies:</span>
+                  <span className={styles.overview_item_title}>Movies:</span>
                   <span className={styles.overview_item_value}>
                     {actor.movies?.map((movie, index) => (
                       <Fragment key={movie.id}>
@@ -158,7 +158,7 @@ const DetailedActor = () => {
                           className={styles.overview_item_value_link}
                           to={`${routes.movies}/${movie.id}`}
                         >
-                          {movie.tittle}
+                          {movie.title}
                         </Link>
                         {index < actor.movies!.length - 1 && ', '}
                       </Fragment>
@@ -169,7 +169,7 @@ const DetailedActor = () => {
             </div>
           </div>
           <div className={styles.description_wrapper}>
-            <h2 className={styles.description_tittle}>Description</h2>
+            <h2 className={styles.description_title}>Description</h2>
             <div className={styles.description}>{actor.description}</div>
           </div>
         </div>

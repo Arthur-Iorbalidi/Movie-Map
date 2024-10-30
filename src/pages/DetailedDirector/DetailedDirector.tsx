@@ -108,26 +108,26 @@ const DetailedDirector = () => {
             <div className={styles.info}>
               <div className={styles.main_info}>
                 <h2
-                  className={styles.tittle}
+                  className={styles.title}
                 >{`${director.name} ${director.surname}`}</h2>
               </div>
               <div className={styles.overview}>
-                <h2 className={styles.overview_tittle}>Overview</h2>
+                <h2 className={styles.overview_title}>Overview</h2>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>Age:</span>
+                  <span className={styles.overview_item_title}>Age:</span>
                   <span className={styles.overview_item_value}>
                     {`${calculateAge(director.birthday, director.dateOfDeath)} years`}
                   </span>
                 </p>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>Birthday:</span>
+                  <span className={styles.overview_item_title}>Birthday:</span>
                   <span className={styles.overview_item_value}>
                     {director.birthday}
                   </span>
                 </p>
                 {director.dateOfDeath && (
                   <p className={styles.overview_item}>
-                    <span className={styles.overview_item_tittle}>
+                    <span className={styles.overview_item_title}>
                       Date of death:
                     </span>
                     <span className={styles.overview_item_value}>
@@ -136,7 +136,7 @@ const DetailedDirector = () => {
                   </p>
                 )}
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>
+                  <span className={styles.overview_item_title}>
                     Place of birth:
                   </span>
                   <span className={styles.overview_item_value}>
@@ -144,7 +144,7 @@ const DetailedDirector = () => {
                   </span>
                 </p>
                 <p className={styles.overview_item}>
-                  <span className={styles.overview_item_tittle}>Movies:</span>
+                  <span className={styles.overview_item_title}>Movies:</span>
                   <span className={styles.overview_item_value}>
                     {director.movies?.map((movie, index) => (
                       <Fragment key={movie.id}>
@@ -152,7 +152,7 @@ const DetailedDirector = () => {
                           className={styles.overview_item_value_link}
                           to={`${routes.movies}/${movie.id}`}
                         >
-                          {movie.tittle}
+                          {movie.title}
                         </Link>
                         {index < director.movies!.length - 1 && ', '}
                       </Fragment>
@@ -163,7 +163,7 @@ const DetailedDirector = () => {
             </div>
           </div>
           <div className={styles.description_wrapper}>
-            <h2 className={styles.description_tittle}>Description</h2>
+            <h2 className={styles.description_title}>Description</h2>
             <div className={styles.description}>{director.description}</div>
           </div>
         </div>

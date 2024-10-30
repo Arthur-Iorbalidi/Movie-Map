@@ -1,6 +1,6 @@
 interface IMovie {
   id: number;
-  tittle: string;
+  title: string;
   description?: string;
   creationDate: string;
   genre: string;
