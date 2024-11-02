@@ -61,7 +61,7 @@ const FavoritesDirectors = () => {
 
   return (
     <>
-      <DirectorsReports />
+      {directors?.length !== 0 && <DirectorsReports />}
       <Grid
         isLoading={isLoading}
         message={directors?.length === 0 ? 'There is nothing here' : undefined}

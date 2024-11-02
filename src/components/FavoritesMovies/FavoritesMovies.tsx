@@ -57,7 +57,7 @@ const FavoritesMovies = () => {
 
   return (
     <>
-      <MoviesReports />
+      {movies?.length !== 0 && <MoviesReports />}
       <Grid
         isLoading={isLoading}
         message={movies?.length === 0 ? 'There is nothing here' : undefined}
