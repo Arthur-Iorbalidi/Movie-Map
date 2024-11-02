@@ -475,6 +475,82 @@ class ServerAPI {
     }
   }
 
+  async getFavoriteActorsReportPdf(unathorizedCallback?: () => void) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.get('reports/favorites/actors/pdf', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        responseType: 'blob',
+      });
+
+      return response.data;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+    }
+  }
+
+  async getFavoriteActorsReportDocx(unathorizedCallback?: () => void) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.get('reports/favorites/actors/docx', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        responseType: 'blob',
+      });
+
+      return response.data;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+    }
+  }
+
+  async getFavoriteDirectorsReportPdf(unathorizedCallback?: () => void) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.get('reports/favorites/directors/pdf', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        responseType: 'blob',
+      });
+
+      return response.data;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+    }
+  }
+
+  async getFavoriteDirectorsReportDocx(unathorizedCallback?: () => void) {
+    try {
+      const token = this.getToken();
+
+      const response = await this.api.get('reports/favorites/directors/docx', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        responseType: 'blob',
+      });
+
+      return response.data;
+    } catch (e) {
+      if ((e as IErrorResponse).status === 401) {
+        unathorizedCallback?.();
+      }
+    }
+  }
+
   getToken() {
     return storageAPI.get('token');
   }

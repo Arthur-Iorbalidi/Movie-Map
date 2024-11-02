@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import ActorsReports from '../ActorsReports/ActorsReports';
 import Grid, { LayoutType } from '../Grid/Grid';
 import Item, { Appearance } from '../Item/Item';
 
@@ -57,30 +58,33 @@ const FavoritesActors = () => {
   };
 
   return (
-    <Grid
-      isLoading={isLoading}
-      message={actors?.length === 0 ? 'There is nothing here' : undefined}
-      layoutType={LayoutType.twoColumns}
-    >
-      {actors &&
-        actors.map((actor) => (
-          <Item
-            key={actor.id}
-            id={actor.id}
-            handleBtnClickCallback={handleToggleFavorites}
-            title={`${actor.name} ${actor.surname}`}
-            subtitle={
-              actor.dateOfDeath
-                ? `${getShortPeriodOfLife(actor.birthday, actor.dateOfDeath)} (${calculateAge(actor.birthday, actor.dateOfDeath)} years)`
-                : `${calculateAge(actor.birthday, actor.dateOfDeath)} years`
-            }
-            image={imageAPI.getImage(actor.image!)}
-            isActive={isInArray(actor.id, favoritesActors)}
-            navigateTo={`${routes.actors}/${actor.id}`}
-            appearance={Appearance.horizontal}
-          />
-        ))}
-    </Grid>
+    <>
+      <ActorsReports />
+      <Grid
+        isLoading={isLoading}
+        message={actors?.length === 0 ? 'There is nothing here' : undefined}
+        layoutType={LayoutType.twoColumns}
+      >
+        {actors &&
+          actors.map((actor) => (
+            <Item
+              key={actor.id}
+              id={actor.id}
+              handleBtnClickCallback={handleToggleFavorites}
+              title={`${actor.name} ${actor.surname}`}
+              subtitle={
+                actor.dateOfDeath
+                  ? `${getShortPeriodOfLife(actor.birthday, actor.dateOfDeath)} (${calculateAge(actor.birthday, actor.dateOfDeath)} years)`
+                  : `${calculateAge(actor.birthday, actor.dateOfDeath)} years`
+              }
+              image={imageAPI.getImage(actor.image!)}
+              isActive={isInArray(actor.id, favoritesActors)}
+              navigateTo={`${routes.actors}/${actor.id}`}
+              appearance={Appearance.horizontal}
+            />
+          ))}
+      </Grid>
+    </>
   );
 };
 

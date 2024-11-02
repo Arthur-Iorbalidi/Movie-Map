@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import DirectorsReports from '../DirectorsReports/DirectorsReports';
 import Grid, { LayoutType } from '../Grid/Grid';
 import Item, { Appearance } from '../Item/Item';
 
@@ -59,30 +60,33 @@ const FavoritesDirectors = () => {
   };
 
   return (
-    <Grid
-      isLoading={isLoading}
-      message={directors?.length === 0 ? 'There is nothing here' : undefined}
-      layoutType={LayoutType.twoColumns}
-    >
-      {directors &&
-        directors.map((director) => (
-          <Item
-            key={director.id}
-            id={director.id}
-            handleBtnClickCallback={handleToggleFavorites}
-            title={`${director.name} ${director.surname}`}
-            subtitle={
-              director.dateOfDeath
-                ? `${getShortPeriodOfLife(director.birthday, director.dateOfDeath)} (${calculateAge(director.birthday, director.dateOfDeath)} years)`
-                : `${calculateAge(director.birthday, director.dateOfDeath)} years`
-            }
-            image={imageAPI.getImage(director.image!)}
-            isActive={isInArray(director.id, favoritesDirectors)}
-            navigateTo={`${routes.directors}/${director.id}`}
-            appearance={Appearance.horizontal}
-          />
-        ))}
-    </Grid>
+    <>
+      <DirectorsReports />
+      <Grid
+        isLoading={isLoading}
+        message={directors?.length === 0 ? 'There is nothing here' : undefined}
+        layoutType={LayoutType.twoColumns}
+      >
+        {directors &&
+          directors.map((director) => (
+            <Item
+              key={director.id}
+              id={director.id}
+              handleBtnClickCallback={handleToggleFavorites}
+              title={`${director.name} ${director.surname}`}
+              subtitle={
+                director.dateOfDeath
+                  ? `${getShortPeriodOfLife(director.birthday, director.dateOfDeath)} (${calculateAge(director.birthday, director.dateOfDeath)} years)`
+                  : `${calculateAge(director.birthday, director.dateOfDeath)} years`
+              }
+              image={imageAPI.getImage(director.image!)}
+              isActive={isInArray(director.id, favoritesDirectors)}
+              navigateTo={`${routes.directors}/${director.id}`}
+              appearance={Appearance.horizontal}
+            />
+          ))}
+      </Grid>
+    </>
   );
 };
 

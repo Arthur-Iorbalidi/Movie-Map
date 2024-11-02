@@ -1,22 +1,22 @@
 import routes from '@src/constants/routes';
 import {
-  downloadFavoriteMoviesReportDocx,
-  downloadFavoriteMoviesReportPDF,
+  downloadFavoriteDirectorsReportDocx,
+  downloadFavoriteDirectorsReportPDF,
 } from '@src/utils/Reports';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../ui/Button/Button';
-import styles from './MoviesReports.module.scss';
+import styles from './DirectorsReports.module.scss';
 
-const MoviesReports = () => {
+const DirectorsReports = () => {
   const navigate = useNavigate();
 
   const getReportPDF = () => {
-    downloadFavoriteMoviesReportPDF(unathorizedCallback);
+    downloadFavoriteDirectorsReportPDF(unathorizedCallback);
   };
 
   const getReportDocx = () => {
-    downloadFavoriteMoviesReportDocx(unathorizedCallback);
+    downloadFavoriteDirectorsReportDocx(unathorizedCallback);
   };
 
   const unathorizedCallback = () => {
@@ -31,4 +31,4 @@ const MoviesReports = () => {
   );
 };
 
-export default MoviesReports;
+export default DirectorsReports;
