@@ -102,7 +102,7 @@ const Login = () => {
           </div>
         </div>
         <div className={styles.submit_wrapper}>
-          <Button value="Sign Up" type="submit" />
+          <Button value="Sign In" type="submit" />
           <p>
             Don&apos;t have an account?{' '}
             <Link to={routes.registration} className={styles.link}>

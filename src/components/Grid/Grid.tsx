@@ -1,6 +1,6 @@
 import Loader from '@src/components/ui/Loader/Loader';
 import Message from '@src/components/ui/Message/Message';
-import { memo, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import styles from './Grid.module.scss';
 
@@ -16,7 +16,7 @@ interface IProps {
   layoutType?: LayoutType;
 }
 
-const Artworks = ({
+const Grid = ({
   children,
   message,
   isLoading,
@@ -42,4 +42,4 @@ const Artworks = ({
   );
 };
 
-export default memo(Artworks);
+export default Grid;
