@@ -1,6 +1,6 @@
-import FavoritesDirectors from '@src/components/FavoriteDirectors/FavoritesDirectors';
-import FavoritesActors from '@src/components/FavoritesActors/FavoritesActors';
-import FavoritesMovies from '@src/components/FavoritesMovies/FavoritesMovies';
+import FavoriteActors from '@src/components/FavoriteActors/FavoriteActors';
+import FavoriteDirectors from '@src/components/FavoriteDirectors/FavoriteDirectors';
+import FavoriteMovies from '@src/components/FavoriteMovies/FavoriteMovies';
 import Sorting from '@src/components/Sorting/Sorting';
 import Loader from '@src/components/ui/Loader/Loader';
 import routes from '@src/constants/routes';
@@ -38,9 +38,9 @@ const Favorites = () => {
           currentSortOptionIndex={currentOptionIndex}
           handleChangeSorting={handleChangeSorting}
         />
-        {options[currentOptionIndex] === 'Movies' && <FavoritesMovies />}
-        {options[currentOptionIndex] === 'Actors' && <FavoritesActors />}
-        {options[currentOptionIndex] === 'Directors' && <FavoritesDirectors />}
+        {options[currentOptionIndex] === 'Movies' && <FavoriteMovies />}
+        {options[currentOptionIndex] === 'Actors' && <FavoriteActors />}
+        {options[currentOptionIndex] === 'Directors' && <FavoriteDirectors />}
       </div>
     </section>
   );

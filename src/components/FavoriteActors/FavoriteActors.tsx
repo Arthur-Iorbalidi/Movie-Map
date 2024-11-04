@@ -16,7 +16,7 @@ import ActorsReports from '../ActorsReports/ActorsReports';
 import Grid, { LayoutType } from '../Grid/Grid';
 import Item, { Appearance } from '../Item/Item';
 
-const FavoritesActors = () => {
+const FavoriteActors = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -88,4 +88,4 @@ const FavoritesActors = () => {
   );
 };
 
-export default FavoritesActors;
+export default FavoriteActors;

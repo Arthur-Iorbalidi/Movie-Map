@@ -16,7 +16,7 @@ import DirectorsReports from '../DirectorsReports/DirectorsReports';
 import Grid, { LayoutType } from '../Grid/Grid';
 import Item, { Appearance } from '../Item/Item';
 
-const FavoritesDirectors = () => {
+const FavoriteDirectors = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -90,4 +90,4 @@ const FavoritesDirectors = () => {
   );
 };
 
-export default FavoritesDirectors;
+export default FavoriteDirectors;

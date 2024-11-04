@@ -14,7 +14,7 @@ import Grid, { LayoutType } from '../Grid/Grid';
 import Item, { Appearance } from '../Item/Item';
 import MoviesReports from '../MoviesReports/MoviesReports';
 
-const FavoritesMovies = () => {
+const FavoriteMovies = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -83,4 +83,4 @@ const FavoritesMovies = () => {
   );
 };
 
-export default FavoritesMovies;
+export default FavoriteMovies;
