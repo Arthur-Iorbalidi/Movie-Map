@@ -41,18 +41,18 @@ const UserPassword = () => {
   });
 
   const onSubmit: SubmitHandler<IFormFields> = (data) => {
-    serverAPI.updateUserInfo(userInfo!.id, data, succesReg, errorReg);
+    serverAPI.updateUserInfo(userInfo!.id, data, succesCallback, errorCallback);
     setIsLoading(true);
   };
 
-  const succesReg = () => {
+  const succesCallback = () => {
     setIsLoading(false);
     setIsDisabled(true);
     setModal({ isShowed: true, isSucces: true, text: 'Success' });
     clearModal();
   };
 
-  const errorReg = (message?: string) => {
+  const errorCallback = (message?: string) => {
     setIsLoading(false);
     if (message) {
       setModal({ isShowed: true, isSucces: false, text: message });

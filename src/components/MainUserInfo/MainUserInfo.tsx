@@ -52,11 +52,11 @@ const MainUserInfo = () => {
   });
 
   const onSubmit: SubmitHandler<IFormFields> = (data) => {
-    serverAPI.updateUserInfo(userInfo!.id, data, succesReg, errorReg);
+    serverAPI.updateUserInfo(userInfo!.id, data, succesCallback, errorCallback);
     setIsLoading(true);
   };
 
-  const succesReg = (value: IAuthUserResponse) => {
+  const succesCallback = (value: IAuthUserResponse) => {
     setIsLoading(false);
     dispatch(changeUserInfo(value.user));
     serverAPI.setToken(value.token);
@@ -65,7 +65,7 @@ const MainUserInfo = () => {
     clearModal();
   };
 
-  const errorReg = (message?: string) => {
+  const errorCallback = (message?: string) => {
     setIsLoading(false);
     if (message) {
       setModal({ isShowed: true, isSucces: false, text: message });

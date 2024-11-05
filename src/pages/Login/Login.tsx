@@ -45,11 +45,11 @@ const Login = () => {
   });
 
   const onSubmit: SubmitHandler<IFormFields> = (data) => {
-    serverAPI.login(data, succesReg, errorReg);
+    serverAPI.login(data, succesLogin, errorLogin);
     setIsLoading(true);
   };
 
-  const succesReg = (value: IAuthUserResponse) => {
+  const succesLogin = (value: IAuthUserResponse) => {
     setIsLoading(false);
     serverAPI.setToken(value.token);
     dispatch(changeIsAuthorized(true));
@@ -57,7 +57,7 @@ const Login = () => {
     navigate('/');
   };
 
-  const errorReg = (message?: string) => {
+  const errorLogin = (message?: string) => {
     setIsLoading(false);
     if (message) {
       setModal({ isShowed: true, text: message });
