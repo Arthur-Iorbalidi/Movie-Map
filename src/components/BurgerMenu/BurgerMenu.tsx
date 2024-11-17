@@ -3,7 +3,10 @@ import useAppDispatch from '@src/hooks/useAppDispatch';
 import useAppSelector from '@src/hooks/useAppSelector';
 import useClickOutside from '@src/hooks/useClickOutside';
 import serverAPI from '@src/services/serverAPI';
-import { changeIsAuthorized } from '@src/store/slices/userSlice';
+import {
+  changeIsAuthorized,
+  changeUserInfo,
+} from '@src/store/slices/userSlice';
 import { useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -31,6 +34,7 @@ const BurgerMenu = ({ toggleBurgerMenu, isBurgerMenuOpened }: IProps) => {
     toggleBurgerMenu();
     serverAPI.logout();
     dispatch(changeIsAuthorized(false));
+    dispatch(changeUserInfo(undefined));
   };
 
   return (

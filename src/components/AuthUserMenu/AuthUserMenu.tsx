@@ -2,7 +2,10 @@ import routes from '@src/constants/routes';
 import useAppDispatch from '@src/hooks/useAppDispatch';
 import useClickOutside from '@src/hooks/useClickOutside';
 import serverAPI from '@src/services/serverAPI';
-import { changeIsAuthorized } from '@src/store/slices/userSlice';
+import {
+  changeIsAuthorized,
+  changeUserInfo,
+} from '@src/store/slices/userSlice';
 import { useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -28,6 +31,7 @@ const AuthUserMenu = ({ toggleAuthUserMenu, isAuthUserMenuOpened }: IProps) => {
     toggleAuthUserMenu();
     serverAPI.logout();
     dispatch(changeIsAuthorized(false));
+    dispatch(changeUserInfo(undefined));
   };
 
   return (
