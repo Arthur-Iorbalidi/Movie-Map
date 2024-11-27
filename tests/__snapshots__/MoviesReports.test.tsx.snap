@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MoviesReports Component > matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="_download_cd85c5"
+  >
+    <button
+      class="_btn_50c219 _normal_50c219 "
+      type="button"
+    >
+      Report PDF
+    </button>
+    <button
+      class="_btn_50c219 _normal_50c219 "
+      type="button"
+    >
+      Report Docx
+    </button>
+  </div>
+</DocumentFragment>
+`;

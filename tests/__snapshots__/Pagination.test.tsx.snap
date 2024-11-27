@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Pagination Component > matches snapshot when pagination is rendered 1`] = `
+<DocumentFragment>
+  <div
+    class="_pagination_08165b"
+  >
+    <div
+      class="_wrapper_08165b"
+    >
+      <button
+        class="_previos_btn_08165b"
+      >
+        <img
+          alt="previos"
+          src="/src/assets/icons/arrow-back.svg"
+        />
+      </button>
+      <button
+        class="_pagination_item_edaf99 "
+      >
+        1
+      </button>
+      <button
+        class="_pagination_item_edaf99 "
+      >
+        2
+      </button>
+      <button
+        class="_pagination_item_edaf99 _active_edaf99"
+      >
+        3
+      </button>
+      <button
+        class="_pagination_item_edaf99 "
+      >
+        4
+      </button>
+      <button
+        class="_pagination_item_edaf99 "
+      >
+        5
+      </button>
+      <button
+        class="_next_btn_08165b"
+      >
+        <img
+          alt="next"
+          src="/src/assets/icons/arrow-forward.svg"
+        />
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

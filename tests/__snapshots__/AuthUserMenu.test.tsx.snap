@@ -1,0 +1,51 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AuthUserMenu Component > matches snapshot when menu is closed 1`] = `<DocumentFragment />`;
+
+exports[`AuthUserMenu Component > matches snapshot when menu is open 1`] = `
+<DocumentFragment>
+  <nav
+    class="_burger_menu_e79693"
+  >
+    <ul
+      class="_burger_menu_list_e79693"
+    >
+      <li>
+        <a
+          class="_link_e79693"
+          href="/account"
+        >
+          <span
+            class="_link_text_e79693"
+          >
+            Account
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          class="_link_e79693"
+          href="/favorites"
+        >
+          <span
+            class="_link_text_e79693"
+          >
+            Favorites
+          </span>
+        </a>
+      </li>
+      <li>
+        <button
+          class="_link_e79693"
+        >
+          <span
+            class="_link_text_e79693"
+          >
+            Log out
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;

@@ -1,0 +1,56 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button Component > matches snapshot with custom className 1`] = `
+<DocumentFragment>
+  <button
+    class="_btn_50c219 _normal_50c219 custom-class"
+    type="button"
+  >
+    Custom Button
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Component > matches snapshot with danger appearance 1`] = `
+<DocumentFragment>
+  <button
+    class="_btn_50c219 _danger_50c219 "
+    type="button"
+  >
+    Delete
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Component > matches snapshot with default appearance 1`] = `
+<DocumentFragment>
+  <button
+    class="_btn_50c219 _normal_50c219 "
+    type="button"
+  >
+    Click Me
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Component > matches snapshot with reset type 1`] = `
+<DocumentFragment>
+  <button
+    class="_btn_50c219 _normal_50c219 "
+    type="reset"
+  >
+    Reset
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Component > matches snapshot with submit type 1`] = `
+<DocumentFragment>
+  <button
+    class="_btn_50c219 _normal_50c219 "
+    type="submit"
+  >
+    Submit
+  </button>
+</DocumentFragment>
+`;

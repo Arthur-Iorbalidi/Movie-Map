@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PaginationItem Component > matches snapshot when page is active 1`] = `
+<DocumentFragment>
+  <button
+    class="_pagination_item_edaf99 _active_edaf99"
+  >
+    3
+  </button>
+</DocumentFragment>
+`;
+
+exports[`PaginationItem Component > matches snapshot when page is not active 1`] = `
+<DocumentFragment>
+  <button
+    class="_pagination_item_edaf99 "
+  >
+    4
+  </button>
+</DocumentFragment>
+`;

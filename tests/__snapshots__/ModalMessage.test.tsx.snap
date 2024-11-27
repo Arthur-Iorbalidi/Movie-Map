@@ -1,0 +1,51 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ModalMessage Component > matches snapshot for default appearance (normal) 1`] = `
+<DocumentFragment>
+  <div
+    class="_message_84a862 _normal_84a862 "
+  >
+    Default normal message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModalMessage Component > matches snapshot for error appearance 1`] = `
+<DocumentFragment>
+  <div
+    class="_message_84a862 _error_84a862 "
+  >
+    Error message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModalMessage Component > matches snapshot for normal appearance 1`] = `
+<DocumentFragment>
+  <div
+    class="_message_84a862 _normal_84a862 "
+  >
+    Normal message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModalMessage Component > matches snapshot for success appearance 1`] = `
+<DocumentFragment>
+  <div
+    class="_message_84a862 _succes_84a862 "
+  >
+    Success message
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ModalMessage Component > matches snapshot with custom className 1`] = `
+<DocumentFragment>
+  <div
+    class="_message_84a862 _normal_84a862 custom-class"
+  >
+    Message with custom class
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BurgerMenuButton Component > matches snapshot when burger menu is closed 1`] = `
+<DocumentFragment>
+  <button
+    class="_burger_btn_1ef7d4 "
+  >
+    <div
+      class="_burger_line_1ef7d4"
+    />
+    <div
+      class="_burger_line_1ef7d4"
+    />
+  </button>
+</DocumentFragment>
+`;
+
+exports[`BurgerMenuButton Component > matches snapshot when burger menu is open 1`] = `
+<DocumentFragment>
+  <button
+    class="_burger_btn_1ef7d4 _active_1ef7d4"
+  >
+    <div
+      class="_burger_line_1ef7d4"
+    />
+    <div
+      class="_burger_line_1ef7d4"
+    />
+  </button>
+</DocumentFragment>
+`;

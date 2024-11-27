@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Grid Component > matches snapshot when loading is false 1`] = `
+<DocumentFragment>
+  <div
+    class="_grid_d73136 _twoColumns_d73136"
+  >
+    <div>
+      Child 1
+    </div>
+    <div>
+      Child 2
+    </div>
+    <div
+      class="_message_4dee23"
+    >
+      No data available
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Grid Component > matches snapshot when loading is true 1`] = `
+<DocumentFragment>
+  <div
+    class="_grid_d73136 _threeColumns_d73136"
+  >
+    <div
+      class="_loadingWrapper_9f3c22"
+    >
+      <img
+        alt="Loader"
+        src="/src/assets/icons/loader.svg"
+        style="width: 200px; height: 200px;"
+      />
+    </div>
+    <div>
+      Child 1
+    </div>
+    <div>
+      Child 2
+    </div>
+  </div>
+</DocumentFragment>
+`;

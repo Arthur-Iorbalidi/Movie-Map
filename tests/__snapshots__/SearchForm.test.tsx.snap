@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SearchForm Component > matches snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="_search_form_7818f8"
+  >
+    <div
+      class="_form_field_7818f8"
+    >
+      <input
+        class="_query_field_7818f8"
+        name="query"
+        placeholder="Search..."
+        type="text"
+      />
+      <button
+        class="_submit_btn_7818f8"
+        type="submit"
+      >
+        <img
+          alt="search"
+          src="/src/assets/icons/search.svg"
+        />
+      </button>
+    </div>
+    <p
+      class="_error_message_7818f8"
+    />
+  </form>
+</DocumentFragment>
+`;

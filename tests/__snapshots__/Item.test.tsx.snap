@@ -1,0 +1,87 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Item Component > matches snapshot for horizontal appearance 1`] = `
+<DocumentFragment>
+  <a
+    class="_item_5e36d1 _horizontal_5e36d1"
+    href="/item/1"
+  >
+    <div
+      class="_img_wrapper_5e36d1"
+    >
+      <img
+        alt="item"
+        class="_item_img_5e36d1"
+      />
+    </div>
+    <div
+      class="_info_5e36d1"
+    >
+      <div
+        class="_details_5e36d1"
+      >
+        <p
+          class="_title_5e36d1"
+        >
+          Item Title
+        </p>
+      </div>
+      <div
+        class="_favorite_btn_wrapper_5e36d1"
+      >
+        <button
+          class="_favourite_btn_f07acf _in_favorites_f07acf"
+        >
+          <img
+            alt="add to favorites"
+            src="/src/assets/icons/favorite-bookmark.svg"
+          />
+        </button>
+      </div>
+    </div>
+  </a>
+</DocumentFragment>
+`;
+
+exports[`Item Component > matches snapshot for vertical appearance 1`] = `
+<DocumentFragment>
+  <a
+    class="_item_5e36d1 _vertical_5e36d1"
+    href="/item/1"
+  >
+    <div
+      class="_img_wrapper_5e36d1"
+    >
+      <img
+        alt="item"
+        class="_item_img_5e36d1"
+      />
+    </div>
+    <div
+      class="_info_5e36d1"
+    >
+      <div
+        class="_details_5e36d1"
+      >
+        <p
+          class="_title_5e36d1"
+        >
+          Item Title
+        </p>
+      </div>
+      <div
+        class="_favorite_btn_wrapper_5e36d1"
+      >
+        <button
+          class="_favourite_btn_f07acf _in_favorites_f07acf"
+        >
+          <img
+            alt="add to favorites"
+            src="/src/assets/icons/favorite-bookmark.svg"
+          />
+        </button>
+      </div>
+    </div>
+  </a>
+</DocumentFragment>
+`;
